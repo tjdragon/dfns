@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class CreateWalletTest {
     @Test
     void createWallet() throws IOException, InterruptedException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchProviderException, SignatureException, InvalidKeyException {
-        // STEP ONE: GET THE DFNS CHALLENGE
+        System.out.println("// STEP ONE: GET THE DFNS CHALLENGE");
 
         final CreateWalletRequest createWalletRequest = new CreateWalletRequest("EthereumGoerli", "tj-eth-wallet-a");
         final String createWalletRequestJSON = Utils.stringify(Utils.toJSON(createWalletRequest, CreateWalletRequest.class));
@@ -40,7 +40,7 @@ public class CreateWalletTest {
         final String dfnsChallenge = RESTInvoker.post(RESTInvoker.DEFAULT_ENDPOINT + "/auth/action/init", headers, createUserActionSignaturePayloadJSON);
         System.out.println("dfnsChallenge: " + dfnsChallenge);
 
-        // STEP TWO: SIGN THE CHALLENGE
+        System.out.println("// STEP TWO: SIGN THE CHALLENGE");
 
         final JsonObject jsonObject = Utils.asJsonObject(dfnsChallenge);
         final String challengeIdentifier = jsonObject.get("challengeIdentifier").getAsString();
@@ -65,7 +65,7 @@ public class CreateWalletTest {
         final String userActionPayloadJSON = Utils.stringify(Utils.toJSON(userActionPayload, UserActionPayload.class));
         System.out.println("userActionPayloadJSON: " + userActionPayloadJSON);
 
-        // STEP THREE: Sends the signed challenge
+        System.out.println("// STEP THREE: SEND THE SIGNED CHALLENGE");
         final String userActionSignature = RESTInvoker.post(RESTInvoker.DEFAULT_ENDPOINT + "/auth/action", headers, userActionPayloadJSON);
         System.out.println("userActionSignature: " + userActionSignature);
 
