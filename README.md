@@ -35,6 +35,9 @@ See [CryptoUtils.java](./code/src/main/java/tj/dfns/security/CryptoUtils.java).
 We need to provide [request headers](https://docs.dfns.co/dfns-docs/getting-started/request-headers):
 - X-DFNS-APPID: ap-5cjd0-gkpc0-8vbreg28vehsungm (Under [https://app.dfns.ninja/settings/apps](https://app.dfns.ninja/settings/apps))
 - X-DFNS-NONCE: a json formatted object with uuid and a time in ISO format
+- The authorization bearer token
+
+See [ListServiceAccounts](./code/src/test/java/tj/dfns/security/ListServiceAccounts.java) and the [result](https://gist.github.com/tjdragon/01532a8be16d9aacd83ebbe54418ab4c).
 
 
 ## Creation of an Ethereum Wallet on Goerli: POST ...

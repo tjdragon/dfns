@@ -1,7 +1,9 @@
 package tj.dfns.security;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import tj.dfns.utils.Utils;
 
+import java.nio.charset.StandardCharsets;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -16,8 +18,11 @@ public final class Nonce {
         this.date = ZonedDateTime.now( ZoneOffset.UTC ).format( DateTimeFormatter.ISO_INSTANT).toString();
     }
 
-    public String asJSON() {
-        return Utils.toJSON(this, getClass());
+    public String jsonURLencoded() throws JsonProcessingException {
+        final String json = Utils.toJSON(this, getClass());
+        final String stringifiedJson = Utils.stringify(json);
+        final String encoded = Utils.toBase64URL(stringifiedJson.getBytes(StandardCharsets.UTF_8));
+        return encoded;
     }
 
     @Override
