@@ -39,15 +39,23 @@ We need to provide [request headers](https://docs.dfns.co/dfns-docs/getting-star
 
 See [ListServiceAccounts](./code/src/test/java/tj/dfns/security/ListServiceAccounts.java) and the [result](https://gist.github.com/tjdragon/01532a8be16d9aacd83ebbe54418ab4c).
 
+## Creation of an Ethereum Wallet on Goerli
 
-## Creation of an Ethereum Wallet on Goerli: POST ...
-We will then use the service account previously created in order to [create a wallet](https://docs.dfns.co/dfns-docs/api-docs/beta-wallets-api-and-nfts/create-wallet).
+Next step is to create an action that modifies the system's state.  
+For this we will create an Ethereum wallet on Goerli.
 
-The request body would be of the form, it is a POST request to api.dfns.ninja:
+### User Action Signing
+
+First we need to invoke DFNS in order to get a signature associated with the call we would like to make.  
+The flow looks like:
+
+![User Action Signing Flow](./docs/challenge.png)
+
+We want to create an ETH wallet, the payload is:
 
 ```json
 {
   "network": "EthereumGoerli",
-  "name": "tj-goerli-wallet"
+  "name": "tj-eth-wallet-a"
 }
 ```

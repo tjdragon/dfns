@@ -1,0 +1,21 @@
+{
+  "supportedCredentialKinds": [
+    {
+      "kind": "Key",
+      "factor": "either",
+      "requiresSecondFactor": false
+    }
+  ],
+  "challenge": "3911e6d00d6fc9fce357df0424822fee304a7bf2b420c36509f6c35bba77318b",
+  "challengeIdentifier": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJhdXRoLmRmbnMubmluamEiLCJhdWQiOiJkZm5zOmF1dGg6dXNlciIsInN1YiI6Im9yLTM1dnIyLWVhM3VqLTlraXE2NXJkNDkxaWR2Z3MiLCJqdGkiOiJ1ai0xZ2Y5MS05dnZvMi04NW45cnBxbHZ2cmJmZWZsIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6W10sImh0dHBzOi8vY3VzdG9tL3VzZXJuYW1lIjoiUjJEM0BTZXJ2aWNlQWNjb3VudCIsImh0dHBzOi8vY3VzdG9tL2FwcF9tZXRhZGF0YSI6eyJ1c2VySWQiOiJ0by0xYnUzZi0yYzlsOC05bWFxazdpMnBhOG40MzZpIiwib3JnSWQiOiJvci0zNXZyMi1lYTN1ai05a2lxNjVyZDQ5MWlkdmdzIiwidG9rZW5LaW5kIjoiVGVtcCIsImNoYWxsZW5nZSI6IntcInBheWxvYWRcIjpcIntcXFwibmFtZVxcXCI6XFxcInRqLWV0aC13YWxsZXQtYVxcXCIsXFxcIm5ldHdvcmtcXFwiOlxcXCJFdGhlcmV1bUdvZXJsaVxcXCJ9XCIsXCJtZXRob2RcIjpcIlBPU1RcIixcInBhdGhcIjpcIi93YWxsZXRzXCIsXCJzZXJ2ZXJcIjpcImFwaS5kZm5zLm5pbmphXCIsXCJzdW1tYXJ5XCI6XCJDcmVhdGUgd2FsbGV0ICh0ai1ldGgtd2FsbGV0LWEpIG9uIEV0aGVyZXVtR29lcmxpLlwiLFwibm9uY2VcIjpcIm5vLTFuNWlyLTB2Zm5uLThsOTh1bjdqcm4zcjdzdGpcIn0ifSwiaWF0IjoxNjkxNTg4MjcwLCJleHAiOjE2OTE1ODkxNzB9.KIBODMcgd9lhfeiY9p5-cbUY2iKRoQJgmgHSN_sTKNKEmEb10_5BoUOF7qt0zcGCswRAROgpufHew0vU0Z40639s8izs0nFVzpPWP1b_QjK8Kq4aeVaviEly_OBRSTQ8ErPeqrM3XQAzHjW6NZtMaBYgq2NYWQ_yB_U1TMjOFKvRRC4qhoZVPjsKFzclc_KhrzgmFqX2q2UZ8AIMc3mFPAZTszCrEVTGeUWrvutzybfAZPxgjRDKuarRZnaRdzCwk4ezIVBFVVUjM67cYxSgWEFgHz18ACbwQIgRKZf2VrNF3lle7TiyvlnaGldhe7kUlVsLb84Ig7OY3Ppu_rS9DA",
+  "externalAuthenticationUrl": "Zx6rL6iRIQAFgXx0P8IXlguZDH0",
+  "allowCredentials": {
+    "webauthn": [],
+    "key": [
+      {
+        "type": "public-key",
+        "id": "Y2ktMmNoMjMtaHRsbHEtOWVxbzJyY3E4NXY0YWxkZA"
+      }
+    ]
+  }
+}

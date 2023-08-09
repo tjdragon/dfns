@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor SERVICE #purple
+boundary DFNS #red
+
+autonumber
+
+== Challenge ==
+activate DFNS
+SERVICE -> DFNS: Get Challenge\n POST /auth/action/init
+DFNS -> SERVICE: returns challenge to sign
+deactivate DFNS
+
+SERVICE -> SERVICE: Signs challenge\nUsing RSA in my case
+
+activate DFNS
+SERVICE -> DFNS: Sends signed challenge
+DFNS -> SERVICE: Sends a User Action Signature\nto be used in API call
+deactivate DFNS
+
+@enduml

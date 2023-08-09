@@ -1,13 +1,13 @@
 package tj.dfns.security;
 
 import org.junit.jupiter.api.Test;
+import tj.dfns.model.Nonce;
 import tj.dfns.utils.RESTInvoker;
 
-import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ListServiceAccounts {
+public class ListServiceAccountsTest {
     @Test
     public void listServiceAccounts() throws Exception {
         final Nonce nonce = new Nonce();
