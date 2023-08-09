@@ -45,6 +45,7 @@ public final class RESTInvoker {
                 .followRedirects(HttpClient.Redirect.NORMAL).build();
 
         final HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        System.out.println("Response Status Code: " + response.statusCode());
         return response.body();
     }
 }
