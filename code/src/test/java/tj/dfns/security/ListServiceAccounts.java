@@ -11,6 +11,7 @@ public class ListServiceAccounts {
     @Test
     public void listServiceAccounts() throws IOException, InterruptedException {
         final Nonce nonce = new Nonce();
+        System.out.println(nonce.asJSON());
 
         final Map<String, String> headers = new ConcurrentHashMap<>();
         headers.put("X-DFNS-APPID", "ap-5cjd0-gkpc0-8vbreg28vehsungm");

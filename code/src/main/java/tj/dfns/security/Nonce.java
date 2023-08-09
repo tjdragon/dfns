@@ -9,11 +9,11 @@ import java.util.UUID;
 
 public final class Nonce {
     public final String uuid;
-    public final String time;
+    public final String date;
 
     public Nonce() {
         this.uuid = UUID.randomUUID().toString();
-        this.time = ZonedDateTime.now( ZoneOffset.UTC ).format( DateTimeFormatter.ISO_INSTANT).toString();
+        this.date = ZonedDateTime.now( ZoneOffset.UTC ).format( DateTimeFormatter.ISO_INSTANT).toString();
     }
 
     public String asJSON() {
@@ -24,7 +24,7 @@ public final class Nonce {
     public String toString() {
         return "Nonce{" +
                 "uuid='" + uuid + '\'' +
-                ", time='" + time + '\'' +
+                ", date='" + date + '\'' +
                 '}';
     }
 }
