@@ -16,17 +16,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class CreateWalletTest {
-    @Test
-    void createWallet() throws IOException, InterruptedException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchProviderException, SignatureException, InvalidKeyException {
-        System.out.println("// STEP ONE: GET THE DFNS CHALLENGE");
-
-        final CreateWalletRequest createWalletRequest = new CreateWalletRequest("EthereumGoerli", "tj-eth-wallet-a");
-        final String createWalletRequestJSON = Utils.stringify(Utils.toJSON(createWalletRequest, CreateWalletRequest.class));
-        final CreateUserActionSignaturePayload createUserActionSignaturePayload =
-                new CreateUserActionSignaturePayload(createWalletRequestJSON, "POST", "/wallets");
-        final String createUserActionSignaturePayloadJSON = Utils.stringify(Utils.toJSON(createUserActionSignaturePayload, CreateUserActionSignaturePayload.class));
-        System.out.println("createUserActionSignaturePayloadJSON: " + createUserActionSignaturePayloadJSON);
-
+    private Map<String, String> createHeaders() throws JsonProcessingException {
         final Nonce nonce = new Nonce();
         final String jsonData = nonce.jsonURLencoded();
 
@@ -36,10 +26,29 @@ public class CreateWalletTest {
         headers.put("Authorization", "Bearer " + Credentials.DEFAULT_TOKEN);
         headers.put("Accept", "application/json");
 
+        return headers;
+    }
+
+    private String getChallenge() throws IOException, InterruptedException {
+        System.out.println("// STEP ONE: GET THE DFNS CHALLENGE");
+
+        final CreateWalletRequest createWalletRequest = new CreateWalletRequest("EthereumGoerli", "tj-eth-wallet-a");
+        final String createWalletRequestJSON = Utils.stringify(Utils.toJSON(createWalletRequest, CreateWalletRequest.class));
+        final CreateUserActionSignaturePayload createUserActionSignaturePayload =
+                new CreateUserActionSignaturePayload(createWalletRequestJSON, "POST", "/wallets");
+        final String createUserActionSignaturePayloadJSON = Utils.stringify(Utils.toJSON(createUserActionSignaturePayload, CreateUserActionSignaturePayload.class));
+        System.out.println("createUserActionSignaturePayloadJSON: " + createUserActionSignaturePayloadJSON);
+
+        final Map<String, String> headers = createHeaders();
+
         // https://docs.dfns.co/dfns-docs/advanced-topics/authentication/request-signing/key-signing-typescript
         final String dfnsChallenge = RESTInvoker.post(RESTInvoker.DEFAULT_ENDPOINT + "/auth/action/init", headers, createUserActionSignaturePayloadJSON);
         System.out.println("dfnsChallenge: " + dfnsChallenge);
 
+        return dfnsChallenge;
+    }
+
+    private String createUserActionPayload(final String dfnsChallenge) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchProviderException, SignatureException, InvalidKeyException {
         System.out.println("// STEP TWO: SIGN THE CHALLENGE");
 
         final JsonObject jsonObject = Utils.asJsonObject(dfnsChallenge);
@@ -67,10 +76,24 @@ public class CreateWalletTest {
         final UserActionPayload userActionPayload = new UserActionPayload(challengeIdentifier, firstFactor);
         final String userActionPayloadJSON = Utils.stringify(Utils.toJSON(userActionPayload, UserActionPayload.class));
         System.out.println("userActionPayloadJSON: " + userActionPayloadJSON);
+        return userActionPayloadJSON;
+    }
 
+    private String getUserActionSignature(final String userActionPayloadJSON) throws IOException, InterruptedException {
         System.out.println("// STEP THREE: SEND THE SIGNED CHALLENGE");
+
+        final Map<String, String> headers = createHeaders();
         final String userActionSignature = RESTInvoker.post(RESTInvoker.DEFAULT_ENDPOINT + "/auth/action", headers, userActionPayloadJSON);
         System.out.println("userActionSignature: " + userActionSignature);
+        return userActionSignature;
+    }
+
+    @Test
+    void createWallet() throws IOException, InterruptedException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchProviderException, SignatureException, InvalidKeyException {
+        final String dfnsChallenge = getChallenge();
+        final String userActionPayloadJSON = createUserActionPayload(dfnsChallenge);
+        final String userActionSignature = getUserActionSignature(userActionPayloadJSON);
+
         //  {"error":{"name":"UnauthorizedError","errorName":"Unauthorized","serviceName":"auth-management","message":"Unauthorized","causes":[],"shouldTriggerInvestigation":true}}
     }
 }
