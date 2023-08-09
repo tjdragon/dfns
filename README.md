@@ -25,3 +25,6 @@ openssl pkey -in rsa2048.pem -pubout -out rsa2048.public.pem
 In the folder [keys](./keys) you will find both the private and public keys.
 
 Next step is to add this public key, associated with a machine id to  [https://app.dfns.ninja/settings/service-accounts/new](https://app.dfns.ninja/settings/service-accounts/new).
+
+Finally, we just need to make sure we can read the PEM and re-create a private key.  
+See [CryptoUtils.java](./code/src/main/java/tj/dfns/security/CryptoUtils.java).
