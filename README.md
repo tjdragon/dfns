@@ -59,3 +59,8 @@ We want to create an ETH wallet, the payload is:
   "name": "tj-eth-wallet-a"
 }
 ```
+
+See [CreateWalletTest.java](./code/src/test/java/tj/dfns/security/CreateWalletTest.java):
+- Get the [challenge](https://gist.github.com/tjdragon/3755eb504f6680a1aeab2870bcc10565)
+- Sign the challenge - in my case using SHA256 with RSA
+- 

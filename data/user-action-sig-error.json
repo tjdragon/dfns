@@ -1,0 +1,10 @@
+{
+  "error": {
+    "name": "UnauthorizedError",
+    "errorName": "Unauthorized",
+    "serviceName": "auth-management",
+    "message": "Unauthorized",
+    "causes": [],
+    "shouldTriggerInvestigation": true
+  }
+}

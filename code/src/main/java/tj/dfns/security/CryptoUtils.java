@@ -29,6 +29,13 @@ public final class CryptoUtils {
         return keyFactory.generatePrivate(keySpec);
     }
 
+    public static byte[] sign(final PrivateKey privateKey, final byte[] data) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+        final Signature signature = Signature.getInstance("SHA256withRSA");
+        signature.initSign(privateKey);
+        signature.update(data);
+        return signature.sign();
+    }
+
     public static List<String> resourceAsListOfStrings(final String resourceName) throws IOException {
         final var url = Resources.getResource(resourceName);
         return Resources.readLines(url, StandardCharsets.UTF_8);

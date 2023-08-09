@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 
 import java.lang.reflect.Type;
 import java.util.Base64;
@@ -25,6 +26,10 @@ public final class Utils {
 
     public static String toJSON(final Object src, final Type typeOfSrc) {
         return gson.toJson(src, typeOfSrc);
+    }
+
+    public static JsonObject asJsonObject(final String json) {
+        return gson.fromJson(json, JsonObject.class);
     }
 
     public static String stringify(final String jsonData) throws JsonProcessingException {
