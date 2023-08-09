@@ -54,9 +54,12 @@ public class CreateWalletTest {
         final String signedClientDataBase64 = Utils.toBase64URL(signedClientData);
         System.out.println("signedClientDataBase64: " + signedClientDataBase64);
 
+        final String credId =  Utils.toBase64URL(Credentials.API_CREDENTIAL_ID.getBytes(StandardCharsets.UTF_8));
+        final String clientDataJSONBase64 = Utils.toBase64URL(clientDataJSON.getBytes(StandardCharsets.UTF_8));
+
         final UserActionPayload.CredentialAssertion credentialAssertion = new UserActionPayload.CredentialAssertion(
-                Utils.toBase64URL(Credentials.API_CREDENTIAL_ID.getBytes(StandardCharsets.UTF_8)),
-                clientDataJSON,
+                credId,
+                clientDataJSONBase64,
                 signedClientDataBase64
         );
 
@@ -68,6 +71,6 @@ public class CreateWalletTest {
         System.out.println("// STEP THREE: SEND THE SIGNED CHALLENGE");
         final String userActionSignature = RESTInvoker.post(RESTInvoker.DEFAULT_ENDPOINT + "/auth/action", headers, userActionPayloadJSON);
         System.out.println("userActionSignature: " + userActionSignature);
-
+        //  {"error":{"name":"UnauthorizedError","errorName":"Unauthorized","serviceName":"auth-management","message":"Unauthorized","causes":[],"shouldTriggerInvestigation":true}}
     }
 }
