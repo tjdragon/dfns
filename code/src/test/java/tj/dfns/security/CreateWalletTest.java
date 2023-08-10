@@ -63,7 +63,7 @@ public class CreateWalletTest {
         final String signedClientDataBase64 = Utils.toBase64URL(signedClientData);
         System.out.println("signedClientDataBase64: " + signedClientDataBase64);
 
-        final String credId =  Utils.toBase64URL(Credentials.API_CREDENTIAL_ID.getBytes(StandardCharsets.UTF_8));
+        final String credId = Credentials.API_CREDENTIAL_ID;
         final String clientDataJSONBase64 = Utils.toBase64URL(clientDataJSON.getBytes(StandardCharsets.UTF_8));
 
         final UserActionPayload.CredentialAssertion credentialAssertion = new UserActionPayload.CredentialAssertion(
