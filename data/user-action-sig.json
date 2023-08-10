@@ -1,0 +1,11 @@
+{
+  "challengeIdentifier": "eyJ0e...fQNA",
+  "firstFactor": {
+    "kind": "Key",
+    "credentialAssertion": {
+      "credId": "6Ca6tAOFTx2odyJBnCoRO-gPvfpfy0EOoOcEaxfxIOk",
+      "clientData": "eyJ0eXBlIjoia2V5LmdldCIsImNoYWxsZW5nZSI6Ik1XTTBNbVk1WVRRME1EUmlOemRoTlRGaE56WTVPRFF3TldJNVpUUTRZMlJoT0RaaU5EazNaVFl6T1RFNU9HWXlNRGN4WmpCall6azRNbVE1WXpZMU1BIiwib3JpZ2luIjoiaHR0cHM6Ly9hcHAuZGZucy5uaW5qYSIsImNyb3NzT3JpZ2luIjpmYWxzZX0",
+      "signature": "owt8WtpJT_6eEuw4UwdIX2HMMwENgk0SrI-RoCMPhx_9YMVpNKJGmJfHUusf_R1Mor9a_hinQVuXj4_XRdeJFSY2AySXSUk"
+    }
+  }
+}

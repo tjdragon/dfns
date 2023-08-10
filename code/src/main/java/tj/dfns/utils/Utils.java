@@ -33,6 +33,10 @@ public final class Utils {
         return gson.toJson(src, typeOfSrc);
     }
 
+    public static <T> T fromJSON(final String json, final Class<T> clazz) {
+        return gson.fromJson(json, clazz);
+    }
+
     public static JsonObject asJsonObject(final String json) {
         return gson.fromJson(json, JsonObject.class);
     }
@@ -80,9 +84,9 @@ public final class Utils {
 
     public static void main(String[] args) throws Exception {
         json2java(
-                "C:\\Users\\tj\\PERSO\\DEV\\dfns\\data\\dfns-challenge.json",
-                "DfnsChallenge",
-                "tj.dfns.model.gen",
-                "C:\\Users\\tj\\PERSO\\DEV\\dfns\\code\\src\\main\\java");
+                "/Users/tj\\PERSO/DEV/dfns/data/user-action-sig.json",
+                "UserActionSignature",
+                "tj.dfns.gen.model.useractionsig",
+                "/Users/tj/PERSO/DEV/dfns/code/src/main/java");
     }
 }
