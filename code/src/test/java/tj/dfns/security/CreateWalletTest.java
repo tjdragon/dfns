@@ -58,7 +58,7 @@ public class CreateWalletTest {
         final ClientData clientData = new ClientData(dfnsChallenge);
         final String clientDataJSON = Utils.stringify(Utils.toJSON(clientData, ClientData.class));
 
-        final PrivateKey privateKey = CryptoUtils.rsaPrivateKey("rsa2048.pem");
+        final PrivateKey privateKey = CryptoUtils.rsaPrivateKey("rsa2048-c3p0.pem");
         final byte[] signedClientData = CryptoUtils.sign(privateKey, clientDataJSON.getBytes(StandardCharsets.UTF_8));
         final String signedClientDataBase64 = Utils.toBase64URL(signedClientData);
         System.out.println("signedClientDataBase64: " + signedClientDataBase64);
