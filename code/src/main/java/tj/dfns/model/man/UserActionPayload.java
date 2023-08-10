@@ -1,4 +1,4 @@
-package tj.dfns.model;
+package tj.dfns.model.man;
 
 // https://docs.dfns.co/dfns-docs/api-docs/authentication/user-action-signing/completeuseractionsigning
 public final class UserActionPayload {

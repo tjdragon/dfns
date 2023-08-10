@@ -3,7 +3,7 @@ package tj.dfns.security;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
-import tj.dfns.model.*;
+import tj.dfns.model.man.*;
 import tj.dfns.utils.Credentials;
 import tj.dfns.utils.RESTInvoker;
 import tj.dfns.utils.Utils;

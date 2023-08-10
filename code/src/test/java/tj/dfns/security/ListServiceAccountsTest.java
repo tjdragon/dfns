@@ -1,7 +1,7 @@
 package tj.dfns.security;
 
 import org.junit.jupiter.api.Test;
-import tj.dfns.model.Nonce;
+import tj.dfns.model.man.Nonce;
 import tj.dfns.utils.Credentials;
 import tj.dfns.utils.RESTInvoker;
 

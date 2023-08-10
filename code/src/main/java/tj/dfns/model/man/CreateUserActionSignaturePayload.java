@@ -1,4 +1,4 @@
-package tj.dfns.model;
+package tj.dfns.model.man;
 
 public final class CreateUserActionSignaturePayload {
     public final String userActionPayload;

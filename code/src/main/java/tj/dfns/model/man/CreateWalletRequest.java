@@ -1,4 +1,4 @@
-package tj.dfns.model;
+package tj.dfns.model.man;
 
 public final class CreateWalletRequest {
     public final String network;

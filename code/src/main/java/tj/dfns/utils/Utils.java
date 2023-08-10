@@ -6,8 +6,13 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.sun.codemodel.JCodeModel;
+import org.jsonschema2pojo.*;
+import org.jsonschema2pojo.rules.RuleFactory;
 
+import java.io.File;
 import java.lang.reflect.Type;
+import java.net.URL;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,5 +46,43 @@ public final class Utils {
 
     public static String toBase64URL(final byte[] data) {
         return Base64.getUrlEncoder().encodeToString(data);
+    }
+
+    public static void json2java(final String jsonPath, final String cn, final String pkgName, final String outputFolder) throws Exception {
+        final URL source = new URL("file://" + jsonPath);
+        json2java(source, cn, pkgName, outputFolder);
+    }
+
+    public static void json2java(final URL source, final String cn, final String pkgName, final String outputFolder) throws Exception {
+        final JCodeModel codeModel = new JCodeModel();
+
+        final GenerationConfig config = new DefaultGenerationConfig() {
+            @Override
+            public SourceType getSourceType() {
+                return SourceType.JSON;
+            }
+
+            @Override
+            public AnnotationStyle getAnnotationStyle() {
+                return AnnotationStyle.GSON;
+            }
+        };
+
+        final SchemaMapper mapper = new SchemaMapper(
+                new RuleFactory(config, new GsonAnnotator(config), new SchemaStore()),
+                new SchemaGenerator());
+        mapper.generate(codeModel, cn, pkgName, source);
+
+        final File outputFolderDir = new java.io.File(outputFolder);
+        assert outputFolderDir.isDirectory();
+        codeModel.build(outputFolderDir);
+    }
+
+    public static void main(String[] args) throws Exception {
+        json2java(
+                "C:\\Users\\tj\\PERSO\\DEV\\dfns\\data\\dfns-challenge.json",
+                "DfnsChallenge",
+                "tj.dfns.model.gen",
+                "C:\\Users\\tj\\PERSO\\DEV\\dfns\\code\\src\\main\\java");
     }
 }

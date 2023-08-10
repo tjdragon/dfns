@@ -1,4 +1,4 @@
-package tj.dfns.model;
+package tj.dfns.model.man;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import tj.dfns.utils.Utils;
