@@ -32,7 +32,9 @@ public class CreateWalletTest {
         return headers;
     }
 
+    // This is working
     private DfnsChallenge getChallenge() throws IOException, InterruptedException {
+        System.out.println();
         System.out.println("// STEP ONE: GET THE DFNS CHALLENGE");
 
         final CreateWalletRequest createWalletRequest = new CreateWalletRequest("EthereumGoerli", "tj-eth-wallet-a");
@@ -51,7 +53,9 @@ public class CreateWalletTest {
         return Utils.fromJSON(dfnsChallenge, DfnsChallenge.class);
     }
 
-    private String createUserActionPayload(final DfnsChallenge dfnsChallenge) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchProviderException, SignatureException, InvalidKeyException {
+    // This object as JSON is compatible with https://docs.dfns.co/dfns-docs/api-docs/authentication/user-action-signing/completeuseractionsigning
+    private UserActionSignature createUserActionPayload(final DfnsChallenge dfnsChallenge) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchProviderException, SignatureException, InvalidKeyException {
+        System.out.println();
         System.out.println("// STEP TWO: SIGN THE CHALLENGE");
 
         // Get challenge identifier and credential id
@@ -59,9 +63,11 @@ public class CreateWalletTest {
         System.out.println("credId: " + credId);
         final String challengeIdentifier = dfnsChallenge.getChallengeIdentifier();
         System.out.println("challengeIdentifier: " + challengeIdentifier);
+        final String challenge = dfnsChallenge.getChallenge();
+        System.out.println("challenge: " + challenge);
 
         // Build the UserActionSignature payload
-        final ClientData clientData = new ClientData(challengeIdentifier);
+        final ClientData clientData = new ClientData(challenge);
         final String clientDataJSON = Utils.stringify(Utils.toJSON(clientData, ClientData.class));
         System.out.println("clientDataJSON: " + Utils.toJSON(clientData, ClientData.class));
         System.out.println("clientDataJSON (s): " + clientDataJSON);
@@ -85,26 +91,30 @@ public class CreateWalletTest {
 
         userActionSignature.setFirstFactor(firstFactor);
 
-        final String userActionPayloadJSON = Utils.stringify(Utils.toJSON(userActionSignature, UserActionSignature.class));
-        System.out.println("userActionPayloadJSON: " + userActionPayloadJSON);
-
-        return userActionPayloadJSON;
+        return userActionSignature;
     }
 
-    private String getUserActionSignature(final String userActionPayloadJSON) throws IOException, InterruptedException {
+    private String getUserActionSignature(final UserActionSignature userActionSignature) throws IOException, InterruptedException {
+        System.out.println();
         System.out.println("// STEP THREE: SEND THE SIGNED CHALLENGE");
 
+        final String userActionSignatureJSON = Utils.stringify(Utils.toJSON(userActionSignature, UserActionSignature.class));
+        System.out.println("userActionSignatureJSON: " + userActionSignatureJSON);
+
         final Map<String, String> headers = createHeaders();
-        final String userActionSignature = RESTInvoker.post(RESTInvoker.DEFAULT_ENDPOINT + "/auth/action", headers, userActionPayloadJSON);
-        System.out.println("userActionSignature: " + userActionSignature);
-        return userActionSignature;
+        final String result = RESTInvoker.post(RESTInvoker.DEFAULT_ENDPOINT + "/auth/action", headers, userActionSignatureJSON);
+        System.out.println("result: " + result);
+        return result;
     }
 
     @Test
     void createWallet() throws IOException, InterruptedException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchProviderException, SignatureException, InvalidKeyException {
+        System.out.println();
+        System.out.println("-- CREATE WALLET");
+
         final DfnsChallenge dfnsChallenge = getChallenge();
-        final String userActionPayloadJSON = createUserActionPayload(dfnsChallenge);
-        final String userActionSignature = getUserActionSignature(userActionPayloadJSON);
+        final UserActionSignature userActionSignature = createUserActionPayload(dfnsChallenge);
+        final String result = getUserActionSignature(userActionSignature);
 
         //  {"error":{"name":"UnauthorizedError","errorName":"Unauthorized","serviceName":"auth-management","message":"Unauthorized","causes":[],"shouldTriggerInvestigation":true}}
     }
