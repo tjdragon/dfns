@@ -1,11 +1,12 @@
 
 package tj.dfns.gen.model.challenge;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.processing.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import javax.annotation.processing.Generated;
+import java.util.ArrayList;
+import java.util.List;
 
 @Generated("jsonschema2pojo")
 public class AllowCredentials {

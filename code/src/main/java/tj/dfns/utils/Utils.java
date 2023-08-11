@@ -88,9 +88,9 @@ public final class Utils {
 
     public static void main(String[] args) throws Exception {
         json2java(
-                "/Users/tj/PERSO/DEV/dfns/data/dfns-user-action-sig-result.json",
-                "UserActionResult",
-                "tj.dfns.gen.model.useractionsig",
+                "/Users/tj/PERSO/DEV/dfns/data/wallet-assets.json",
+                "WalletAssets",
+                "tj.dfns.gen.model.wallets",
                 "/Users/tj/PERSO/DEV/dfns/code/src/main/java");
     }
 }

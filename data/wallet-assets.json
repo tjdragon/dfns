@@ -1,0 +1,17 @@
+{
+  "walletId": "wa-3uiqg-q2jk1-878rompsd0ee6lul",
+  "network": "EthereumGoerli",
+  "assets": [
+    {
+      "symbol": "GoerliETH",
+      "decimals": 18,
+      "balance": "770000000000000"
+    },
+    {
+      "contract": "0x06a7984414af532fc7745d9250cedb77764f60d5",
+      "symbol": "TOKB",
+      "decimals": 18,
+      "balance": "501002"
+    }
+  ]
+}

@@ -1,14 +1,14 @@
 package tj.dfns.security;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import tj.dfns.gen.model.challenge.DfnsChallenge;
 import tj.dfns.gen.model.useractionsig.CredentialAssertion;
 import tj.dfns.gen.model.useractionsig.FirstFactor;
 import tj.dfns.gen.model.useractionsig.UserActionResult;
 import tj.dfns.gen.model.useractionsig.UserActionSignature;
-import tj.dfns.model.man.*;
-import tj.dfns.utils.Credentials;
+import tj.dfns.model.man.ClientData;
+import tj.dfns.model.man.CreateUserActionSignaturePayload;
+import tj.dfns.model.man.CreateWalletRequest;
 import tj.dfns.utils.RESTInvoker;
 import tj.dfns.utils.Utils;
 
@@ -17,7 +17,6 @@ import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 import static tj.dfns.security.Commons.createHeaders;
 
