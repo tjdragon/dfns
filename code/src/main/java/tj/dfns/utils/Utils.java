@@ -52,6 +52,10 @@ public final class Utils {
         return Base64.getUrlEncoder().encodeToString(data);
     }
 
+    public static byte[] fromBase64URL(final String data) {
+        return Base64.getUrlDecoder().decode(data);
+    }
+
     public static void json2java(final String jsonPath, final String cn, final String pkgName, final String outputFolder) throws Exception {
         final URL source = new URL("file://" + jsonPath);
         json2java(source, cn, pkgName, outputFolder);

@@ -73,9 +73,9 @@ public class CreateWalletTest {
         System.out.println("clientDataJSON (s): " + clientDataJSON);
 
         final PrivateKey privateKey = CryptoUtils.rsaPrivateKey("rsa2048-c3p0.pem");
-        final byte[] signedClientData = CryptoUtils.sign(privateKey, clientDataJSON.getBytes(StandardCharsets.UTF_8));
-        final String signedClientDataBase64 = Utils.toBase64URL(signedClientData);
-        System.out.println("signedClientDataBase64: " + signedClientDataBase64);
+        final byte[] signatureRaw = CryptoUtils.sign(privateKey, clientDataJSON.getBytes(StandardCharsets.UTF_8));
+        final String signatureBase64 = Utils.toBase64URL(signatureRaw);
+        System.out.println("signatureBase64: " + signatureBase64);
 
         final UserActionSignature userActionSignature = new UserActionSignature();
         userActionSignature.setChallengeIdentifier(challengeIdentifier);
@@ -83,7 +83,7 @@ public class CreateWalletTest {
         final CredentialAssertion credentialAssertion = new CredentialAssertion();
         credentialAssertion.setCredId(credId);
         credentialAssertion.setClientData(Utils.toBase64URL(clientDataJSON.getBytes(StandardCharsets.UTF_8)));
-        credentialAssertion.setSignature(signedClientDataBase64);
+        credentialAssertion.setSignature(signatureBase64);
 
         final FirstFactor firstFactor = new FirstFactor();
         firstFactor.setKind("Key");
@@ -114,8 +114,24 @@ public class CreateWalletTest {
 
         final DfnsChallenge dfnsChallenge = getChallenge();
         final UserActionSignature userActionSignature = createUserActionPayload(dfnsChallenge);
+        verify(userActionSignature);
         final String result = getUserActionSignature(userActionSignature);
 
         //  {"error":{"name":"UnauthorizedError","errorName":"Unauthorized","serviceName":"auth-management","message":"Unauthorized","causes":[],"shouldTriggerInvestigation":true}}
+    }
+
+    private void verify(final UserActionSignature userActionSignature) throws NoSuchAlgorithmException, IOException, InvalidKeySpecException, NoSuchProviderException, SignatureException, InvalidKeyException {
+        // What needs to be verified - is actually what was signed, i.e, the Client Data.
+        final CredentialAssertion credentialAssertion = userActionSignature.getFirstFactor().getCredentialAssertion();
+        final String clientDataStr = credentialAssertion.getClientData(); // Base64 URL encoded
+        final byte[] clientDataDecoded = Utils.fromBase64URL(clientDataStr);
+        final ClientData clientDataObject = Utils.fromJSON(new String(clientDataDecoded), ClientData.class);
+        System.out.println(clientDataObject);
+
+        final PublicKey publicKey = CryptoUtils.rsaPublicKey("rsa2048-c3p0.public.pem");
+        final byte[] signature = Utils.fromBase64URL(credentialAssertion.getSignature());
+        final boolean verified = CryptoUtils.verify(publicKey, clientDataDecoded, signature);
+        System.out.println("Verified? " + verified);
+        assert verified;
     }
 }
