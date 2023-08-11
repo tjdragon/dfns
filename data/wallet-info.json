@@ -1,0 +1,14 @@
+{
+  "dateCreated": "2023-08-11T14:20:03.240Z",
+  "status": "Active",
+  "address": "0x1888288d953ca08c27faa5901093136fac648ef9",
+  "name": "tj-eth-wallet-a",
+  "network": "EthereumGoerli",
+  "id": "wa-3uiqg-q2jk1-878rompsd0ee6lul",
+  "tags": [],
+  "signingKey": {
+    "scheme": "ECDSA",
+    "curve": "secp256k1",
+    "publicKey": "029678adea63d902d1b0cfd7398f5e10ceda4226dde4e6db60d185970930a6b999"
+  }
+}

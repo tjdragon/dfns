@@ -19,19 +19,9 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import static tj.dfns.security.Commons.createHeaders;
+
 public class CreateWalletTest {
-    private Map<String, String> createHeaders() throws JsonProcessingException {
-        final Nonce nonce = new Nonce();
-        final String jsonData = nonce.jsonURLencoded();
-
-        final Map<String, String> headers = new ConcurrentHashMap<>();
-        headers.put("X-DFNS-APPID", "ap-5cjd0-gkpc0-8vbreg28vehsungm");
-        headers.put("X-DFNS-NONCE", jsonData);
-        headers.put("Authorization", "Bearer " + Credentials.DEFAULT_TOKEN);
-        headers.put("Accept", "application/json");
-
-        return headers;
-    }
 
     // This is working
     private DfnsChallenge getChallenge() throws IOException, InterruptedException {
@@ -108,18 +98,6 @@ public class CreateWalletTest {
         return Utils.fromJSON(result, UserActionResult.class);
     }
 
-    @Test
-    void createWallet() throws IOException, InterruptedException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchProviderException, SignatureException, InvalidKeyException {
-        System.out.println();
-        System.out.println("-- CREATE WALLET");
-
-        final DfnsChallenge dfnsChallenge = getChallenge();
-        final UserActionSignature userActionSignature = createUserActionPayload(dfnsChallenge);
-        verify(userActionSignature);
-        final UserActionResult userActionResult = getUserActionSignature(userActionSignature);
-        System.out.println("userActionResult: " + userActionResult);
-    }
-
     private void verify(final UserActionSignature userActionSignature) throws NoSuchAlgorithmException, IOException, InvalidKeySpecException, NoSuchProviderException, SignatureException, InvalidKeyException {
         // What needs to be verified - is actually what was signed, i.e, the Client Data.
         final CredentialAssertion credentialAssertion = userActionSignature.getFirstFactor().getCredentialAssertion();
@@ -133,5 +111,28 @@ public class CreateWalletTest {
         final boolean verified = CryptoUtils.verify(publicKey, clientDataDecoded, signature);
         System.out.println("Verified? " + verified);
         assert verified;
+    }
+
+    private void postCreateWallet(final UserActionResult userActionResult) throws IOException, InterruptedException {
+        final CreateWalletRequest createWalletRequest = new CreateWalletRequest("EthereumGoerli", "tj-eth-wallet-a");
+        final String createWalletRequestJSON = Utils.stringify(Utils.toJSON(createWalletRequest, CreateWalletRequest.class));
+
+        final Map<String, String> headers = createHeaders();
+        headers.put("X-DFNS-USERACTION", userActionResult.getUserAction());
+        final String result = RESTInvoker.post(RESTInvoker.DEFAULT_ENDPOINT + "/wallets", headers, createWalletRequestJSON);
+        System.out.println("Wallet Creation Result " + result);
+    }
+
+    @Test
+    void createWallet() throws IOException, InterruptedException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchProviderException, SignatureException, InvalidKeyException {
+        System.out.println();
+        System.out.println("-- CREATE WALLET");
+
+        final DfnsChallenge dfnsChallenge = getChallenge();
+        final UserActionSignature userActionSignature = createUserActionPayload(dfnsChallenge);
+        verify(userActionSignature);
+        final UserActionResult userActionResult = getUserActionSignature(userActionSignature);
+        System.out.println("userActionResult: " + userActionResult);
+        postCreateWallet(userActionResult);
     }
 }
