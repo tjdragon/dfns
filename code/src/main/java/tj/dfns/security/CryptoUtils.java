@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 import java.util.List;
 
@@ -34,6 +35,22 @@ public final class CryptoUtils {
         signature.initSign(privateKey);
         signature.update(data);
         return signature.sign();
+    }
+
+    public static PublicKey rsaPublicKey(final String pemResource) throws NoSuchAlgorithmException, NoSuchProviderException, IOException, InvalidKeySpecException {
+        final KeyFactory keyFactory = KeyFactory.getInstance(RSA_KEY_ALGO, "BC");
+        final List<String> pemData = resourceAsListOfStrings(pemResource);
+        final String keyData = pemToString(pemData);
+        final var publicBytes = Base64.getDecoder().decode(keyData);
+        final var x509EncodedKeySpec = new X509EncodedKeySpec(publicBytes);
+        return keyFactory.generatePublic(x509EncodedKeySpec);
+    }
+
+    public static boolean verify(final PublicKey publicKey, final byte[] message, final byte[] sig) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
+        final Signature signature = Signature.getInstance("SHA256withRSA");
+        signature.initVerify(publicKey);
+        signature.update(message);
+        return signature.verify(sig);
     }
 
     public static List<String> resourceAsListOfStrings(final String resourceName) throws IOException {
