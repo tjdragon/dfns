@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import tj.dfns.gen.model.challenge.DfnsChallenge;
 import tj.dfns.gen.model.useractionsig.CredentialAssertion;
 import tj.dfns.gen.model.useractionsig.FirstFactor;
+import tj.dfns.gen.model.useractionsig.UserActionResult;
 import tj.dfns.gen.model.useractionsig.UserActionSignature;
 import tj.dfns.model.man.*;
 import tj.dfns.utils.Credentials;
@@ -94,7 +95,7 @@ public class CreateWalletTest {
         return userActionSignature;
     }
 
-    private String getUserActionSignature(final UserActionSignature userActionSignature) throws IOException, InterruptedException {
+    private UserActionResult getUserActionSignature(final UserActionSignature userActionSignature) throws IOException, InterruptedException {
         System.out.println();
         System.out.println("// STEP THREE: SEND THE SIGNED CHALLENGE");
 
@@ -104,7 +105,7 @@ public class CreateWalletTest {
         final Map<String, String> headers = createHeaders();
         final String result = RESTInvoker.post(RESTInvoker.DEFAULT_ENDPOINT + "/auth/action", headers, userActionSignatureJSON);
         System.out.println("result: " + result);
-        return result;
+        return Utils.fromJSON(result, UserActionResult.class);
     }
 
     @Test
@@ -115,9 +116,8 @@ public class CreateWalletTest {
         final DfnsChallenge dfnsChallenge = getChallenge();
         final UserActionSignature userActionSignature = createUserActionPayload(dfnsChallenge);
         verify(userActionSignature);
-        final String result = getUserActionSignature(userActionSignature);
-
-        //  {"error":{"name":"UnauthorizedError","errorName":"Unauthorized","serviceName":"auth-management","message":"Unauthorized","causes":[],"shouldTriggerInvestigation":true}}
+        final UserActionResult userActionResult = getUserActionSignature(userActionSignature);
+        System.out.println("userActionResult: " + userActionResult);
     }
 
     private void verify(final UserActionSignature userActionSignature) throws NoSuchAlgorithmException, IOException, InvalidKeySpecException, NoSuchProviderException, SignatureException, InvalidKeyException {
