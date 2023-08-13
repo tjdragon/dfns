@@ -63,4 +63,21 @@ We want to create an ETH wallet, the payload is:
 See [CreateWalletTest.java](./code/src/test/java/tj/dfns/security/CreateWalletTest.java):
 - Get the [challenge](https://gist.github.com/tjdragon/3755eb504f6680a1aeab2870bcc10565)
 - Sign the challenge - in my case using SHA256 with RSA
-- 
+
+## Signing summary
+
+1. Get the challenge with no issue : https://gist.github.com/tjdragon/d3325b3e3ba4ea38f5b127b650556f5c
+2. From the challenge, extract: the 'challenge', the 'challengeIdentifier' and the 'key.id'
+3. The next step is to build the UserActionSignature.
+4. First is to create the  UserActionSignature: https://gist.github.com/tjdragon/448bb2be3b7a1eb2c1626f3f680e1c09
+5. The ClientData is 'type' = 'key.get', challenge from (2) above, origin = 'http://localhost:3000', and 'crossOrigin' = false
+6. Convert the ClientData into a stringified json
+7. Sign (6) with the private key (SHA256withRSA)
+8. ClientData is converted to base64url
+9. The signature is converted to base64url
+10. CredentialAssertion is created with credId from (2) 'key.id', client data from (8) and the signature from (9)
+11. First Factor is created with 'kind' = 'Key' and the credential assertion (10)
+12. UserActionSignature is created with the identifier (2) and the assertion (10)
+13. UserActionSignature is converted to JSON and sent over
+
+
