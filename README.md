@@ -60,16 +60,14 @@ We want to create an ETH wallet, the payload is:
 }
 ```
 
-See [CreateWalletTest.java](./code/src/test/java/tj/dfns/security/CreateWalletTest.java):
-- Get the [challenge](https://gist.github.com/tjdragon/3755eb504f6680a1aeab2870bcc10565)
-- Sign the challenge - in my case using SHA256 with RSA
+See [CreateWalletTest.java](./code/src/test/java/tj/dfns/security/CreateWalletTest.java)
 
 ## Signing summary
 
-1. Get the challenge with no issue : https://gist.github.com/tjdragon/d3325b3e3ba4ea38f5b127b650556f5c
+1. Get the challenge with no issue : See [dfns-challenge.json](./data/dfns-challenge.json)
 2. From the challenge, extract: the 'challenge', the 'challengeIdentifier' and the 'key.id'
 3. The next step is to build the UserActionSignature.
-4. First is to create the  UserActionSignature: https://gist.github.com/tjdragon/448bb2be3b7a1eb2c1626f3f680e1c09
+4. First is to create the  UserActionSignature: See [user-action-sig.json](./data/user-action-sig.json)
 5. The ClientData is 'type' = 'key.get', challenge from (2) above, origin = 'http://localhost:3000', and 'crossOrigin' = false
 6. Convert the ClientData into a stringified json
 7. Sign (6) with the private key (SHA256withRSA)
@@ -79,5 +77,7 @@ See [CreateWalletTest.java](./code/src/test/java/tj/dfns/security/CreateWalletTe
 11. First Factor is created with 'kind' = 'Key' and the credential assertion (10)
 12. UserActionSignature is created with the identifier (2) and the assertion (10)
 13. UserActionSignature is converted to JSON and sent over
+14. You should get [dfns-user-action-sig-result.json](./data/dfns-user-action-sig-result.json) back
 
-
+## Policies 
+[Policies](https://docs.dfns.co/dfns-docs/api-docs/policy-management) are a critical piece of any system: they enforce rules and set controls on actions.
