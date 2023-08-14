@@ -1,0 +1,9 @@
+{
+  "description": "TransferAmountLimit",
+  "name": "TRP RULE #1",
+  "configuration": {
+    "kind": "TransferAmountLimit",
+    "limit": "1000",
+    "currency": "USD"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "pr-twelv-cat-59i9bb3r299gbpbv",
+  "version": "f8lmchb4h",
+  "kind": "TransferAmountLimit",
+  "orgId": "or-35vr2-ea3uj-9kiq65rd491idvgs",
+  "author": "to-1skcl-a1jd8-8tkq0dcr74mbj6qb",
+  "configuration": {
+    "currency": "USD",
+    "kind": "TransferAmountLimit",
+    "limit": "1000"
+  },
+  "description": "TRP Rule #1 Warning if above 1000 USD",
+  "name": "TRP Rule #1",
+  "tags": [],
+  "dateCreated": "2023-08-14T11:54:07.025Z",
+  "status": "Enabled"
+}

@@ -26,6 +26,6 @@ public class WalletTest {
         final Map<String, String> headers = createHeaders();
         final String walletDetails = RESTInvoker.get(RESTInvoker.DEFAULT_ENDPOINT + "/wallets/wa-3uiqg-q2jk1-878rompsd0ee6lul/assets", headers);
         final WalletAssets walletAssets = Utils.fromJSON(walletDetails, WalletAssets.class);
-        System.out.println(walletAssets);
+        System.out.println(walletDetails);
     }
 }
