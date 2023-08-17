@@ -20,27 +20,6 @@ import static tj.dfns.security.Commons.createHeaders;
 
 public class CreateWalletTest {
     static final String walletId = "tjs-wallet-1";
-//
-//    // This is working
-//    private DfnsChallenge getChallenge() throws IOException, InterruptedException {
-//        System.out.println();
-//        System.out.println("// STEP ONE: GET THE DFNS CHALLENGE");
-//
-//        final CreateWalletRequest createWalletRequest = new CreateWalletRequest("EthereumGoerli", "tj-eth-wallet-a");
-//        final String createWalletRequestJSON = Utils.stringify(Utils.toJSON(createWalletRequest, CreateWalletRequest.class));
-//        final CreateUserActionSignaturePayload createUserActionSignaturePayload =
-//                new CreateUserActionSignaturePayload(createWalletRequestJSON, "POST", "/wallets");
-//        final String createUserActionSignaturePayloadJSON = Utils.stringify(Utils.toJSON(createUserActionSignaturePayload, CreateUserActionSignaturePayload.class));
-//        System.out.println("createUserActionSignaturePayloadJSON: " + createUserActionSignaturePayloadJSON);
-//
-//        final Map<String, String> headers = createHeaders();
-//
-//        // https://docs.dfns.co/dfns-docs/advanced-topics/authentication/request-signing/key-signing-typescript
-//        final String dfnsChallenge = RESTInvoker.post(RESTInvoker.DEFAULT_ENDPOINT + "/auth/action/init", headers, createUserActionSignaturePayloadJSON);
-//        System.out.println("dfnsChallenge: " + dfnsChallenge);
-//
-//        return Utils.fromJSON(dfnsChallenge, DfnsChallenge.class);
-//    }
 
     private void verify(final UserActionSignature userActionSignature) throws NoSuchAlgorithmException, IOException, InvalidKeySpecException, NoSuchProviderException, SignatureException, InvalidKeyException {
         // What needs to be verified - is actually what was signed, i.e, the Client Data.

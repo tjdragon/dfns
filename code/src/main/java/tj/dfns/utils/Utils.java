@@ -88,9 +88,9 @@ public final class Utils {
 
     public static void main(String[] args) throws Exception {
         json2java(
-                "/Users/tj/PERSO/DEV/dfns/data/create-policy.json",
-                "NewPolicy",
-                "tj.dfns.gen.model.policies.create",
+                "/Users/tj/PERSO/DEV/dfns/data/create-transfer.json",
+                "NewTransfer",
+                "tj.dfns.gen.model.transfers",
                 "/Users/tj/PERSO/DEV/dfns/code/src/main/java");
     }
 }

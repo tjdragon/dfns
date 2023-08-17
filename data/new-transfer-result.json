@@ -1,0 +1,17 @@
+{
+  "id": "xfr-2q9dh-b3fsj-8vd8hk8d4q15a10j",
+  "walletId": "wa-3uiqg-q2jk1-878rompsd0ee6lul",
+  "network": "EthereumGoerli",
+  "requester": {
+    "userId": "us-7o9v8-96rl3-9lnr0svbmi638tij",
+    "tokenId": "to-1skcl-a1jd8-8tkq0dcr74mbj6qb",
+    "appId": "ap-5cjd0-gkpc0-8vbreg28vehsungm"
+  },
+  "requestBody": {
+    "amount": "888000000",
+    "kind": "Native",
+    "to": "0x286F036f725356e3f88b036A22282978E83E2277"
+  },
+  "status": "Pending",
+  "dateRequested": "2023-08-17T14:03:22.460Z"
+}
