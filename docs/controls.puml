@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor SERVICE #purple
+boundary DFNS #red
+
+autonumber
+
+SERVICE -> DFNS: Create Policy Rule
+DFNS -> SERVICE: PR-ID-1
+
+SERVICE -> DFNS: Create Policy Control
+DFNS -> SERVICE: PC-ID-1
+
+SERVICE -> DFNS: Create Policy\nwith PR-ID-1 & PC-ID-1
+DFNS -> SERVICE: P1
+
+SERVICE -> DFNS: Approve / Reject Policy Execution
+
+@enduml

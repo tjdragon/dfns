@@ -50,4 +50,11 @@ public class Policies {
         final String result = RESTInvoker.post(RESTInvoker.DEFAULT_ENDPOINT + "/policies/policy-rules/", headers, json);
         System.out.println("Policy Creation Result " + result);
     }
+
+    @Test
+    void listPoliciesControls() throws IOException, InterruptedException {
+        final Map<String, String> headers = createHeaders();
+        final String controls = RESTInvoker.get(RESTInvoker.DEFAULT_ENDPOINT + "/policies/policy-controls/", headers);
+        System.out.println(controls); // {"items":[]} = empty policies
+    }
 }
