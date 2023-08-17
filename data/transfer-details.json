@@ -1,0 +1,21 @@
+{
+  "fee": "31500000357000",
+  "requestBody": {
+    "amount": "888000000",
+    "kind": "Native",
+    "to": "0x286F036f725356e3f88b036A22282978E83E2277"
+  },
+  "txHash": "0xc70f82cae10f78846e6e6c3638d663624c51c67f6f2c72c071166d7cb655384a",
+  "status": "Confirmed",
+  "dateBroadcasted": "2023-08-17T14:03:30.544Z",
+  "dateConfirmed": "2023-08-17T14:03:36.000Z",
+  "walletId": "wa-3uiqg-q2jk1-878rompsd0ee6lul",
+  "network": "EthereumGoerli",
+  "dateRequested": "2023-08-17T14:03:22.460Z",
+  "id": "xfr-2q9dh-b3fsj-8vd8hk8d4q15a10j",
+  "requester": {
+    "tokenId": "to-1skcl-a1jd8-8tkq0dcr74mbj6qb",
+    "userId": "us-7o9v8-96rl3-9lnr0svbmi638tij",
+    "appId": "ap-5cjd0-gkpc0-8vbreg28vehsungm"
+  }
+}

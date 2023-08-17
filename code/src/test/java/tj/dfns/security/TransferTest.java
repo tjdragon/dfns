@@ -5,7 +5,6 @@ import tj.dfns.gen.model.challenge.DfnsChallenge;
 import tj.dfns.gen.model.transfers.NewTransfer;
 import tj.dfns.gen.model.useractionsig.UserActionResult;
 import tj.dfns.gen.model.useractionsig.UserActionSignature;
-import tj.dfns.model.man.CreateWalletRequest;
 import tj.dfns.utils.RESTInvoker;
 import tj.dfns.utils.Utils;
 
@@ -40,5 +39,13 @@ public class TransferTest {
         headers.put("X-DFNS-USERACTION", userActionResult.getUserAction());
         final String result = RESTInvoker.post(RESTInvoker.DEFAULT_ENDPOINT + actionPath, headers, newTransferJSON);
         System.out.println("New Transfer Result " + result);
+    }
+    @Test
+    void transferById() throws IOException, InterruptedException {
+        final Map<String, String> headers = createHeaders();
+        final String transferDetails = RESTInvoker.get(RESTInvoker.DEFAULT_ENDPOINT + "/wallets/wa-3uiqg-q2jk1-878rompsd0ee6lul/transfers/xfr-2q9dh-b3fsj-8vd8hk8d4q15a10j", headers);
+        System.out.println(transferDetails);
+
+        // https://goerli.etherscan.io/tx/0xc70f82cae10f78846e6e6c3638d663624c51c67f6f2c72c071166d7cb655384a
     }
 }
