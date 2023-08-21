@@ -30,12 +30,12 @@ public class Policies {
     @Test
     void createAmountLimitRule() throws IOException, InterruptedException, NoSuchAlgorithmException, InvalidKeySpecException, SignatureException, NoSuchProviderException, InvalidKeyException {
         final NewPolicy amountLimitPolicy = new NewPolicy();
-        amountLimitPolicy.setDescription("TRP Rule #1 Warning if above 1000 USD");
-        amountLimitPolicy.setName("TRP Rule #1");
+        amountLimitPolicy.setDescription("TRP Rule #2 Warning if above 10000 USD");
+        amountLimitPolicy.setName("TRP Rule #2");
 
         final Configuration configuration = new Configuration();
         configuration.setKind(Kind.TransferAmountLimit.name());
-        configuration.setLimit("1000");
+        configuration.setLimit("10000");
         configuration.setCurrency("USD");
 
         amountLimitPolicy.setConfiguration(configuration);
