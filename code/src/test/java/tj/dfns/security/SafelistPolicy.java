@@ -29,7 +29,7 @@ public class SafelistPolicy {
         safelistPolicyRule.setDescription("Only allows known addresses");
 
         final Configuration configuration = new Configuration();
-        configuration.setKind(Kind.AlwaysActivatedRule.name());
+        configuration.setKind(Kind.AlwaysActivated.name());
 //        configuration.setCurrency("USD");
 //        configuration.setLimit("0");
 //        configuration.setAssetSymbol("BTC");

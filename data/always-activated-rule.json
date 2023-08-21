@@ -1,0 +1,15 @@
+{
+  "id": "pr-king-arkan-72glofqqij9qlo65",
+  "version": "f913fb762",
+  "kind": "AlwaysActivated",
+  "orgId": "or-35vr2-ea3uj-9kiq65rd491idvgs",
+  "author": "to-1skcl-a1jd8-8tkq0dcr74mbj6qb",
+  "configuration": {
+    "kind": "AlwaysActivated"
+  },
+  "description": "Only allows known addresses",
+  "name": "Safelist Rule",
+  "tags": [],
+  "dateCreated": "2023-08-21T14:27:59.186Z",
+  "status": "Enabled"
+}
