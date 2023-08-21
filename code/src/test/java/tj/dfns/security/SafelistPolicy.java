@@ -30,13 +30,13 @@ public class SafelistPolicy {
 
         final Configuration configuration = new Configuration();
         configuration.setKind(Kind.AlwaysActivatedRule.name());
-        configuration.setCurrency("USD");
-        configuration.setLimit("0");
-        configuration.setAssetSymbol("BTC");
-        configuration.setShouldIgnoreAssetsWithoutMarketValue(true);
+//        configuration.setCurrency("USD");
+//        configuration.setLimit("0");
+//        configuration.setAssetSymbol("BTC");
+//        configuration.setShouldIgnoreAssetsWithoutMarketValue(true);
 
         safelistPolicyRule.setConfiguration(configuration);
-        System.out.println(Utils.toJSON(safelistPolicyRule, safelistPolicyRule.getClass()));
+        System.out.println("POL:: " + Utils.toJSON(safelistPolicyRule, safelistPolicyRule.getClass()));
 
         final DfnsChallenge challenge = Commons.getChallenge(safelistPolicyRule, "/policies/policy-rules/");
         final UserActionSignature userActionSignature = Commons.createUserActionPayload(challenge);
