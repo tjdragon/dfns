@@ -4,6 +4,8 @@
   "configuration": {
     "kind": "TransferAmountLimit",
     "limit": "1000",
-    "currency": "USD"
+    "currency": "USD",
+    "assetSymbol": "BTC",
+    "shouldIgnoreAssetsWithoutMarketValue": true
   }
 }

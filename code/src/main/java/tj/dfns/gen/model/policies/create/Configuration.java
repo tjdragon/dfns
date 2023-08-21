@@ -17,6 +17,12 @@ public class Configuration {
     @SerializedName("currency")
     @Expose
     private String currency;
+    @SerializedName("assetSymbol")
+    @Expose
+    private String assetSymbol;
+    @SerializedName("shouldIgnoreAssetsWithoutMarketValue")
+    @Expose
+    private Boolean shouldIgnoreAssetsWithoutMarketValue;
 
     public String getKind() {
         return kind;
@@ -42,6 +48,22 @@ public class Configuration {
         this.currency = currency;
     }
 
+    public String getAssetSymbol() {
+        return assetSymbol;
+    }
+
+    public void setAssetSymbol(String assetSymbol) {
+        this.assetSymbol = assetSymbol;
+    }
+
+    public Boolean getShouldIgnoreAssetsWithoutMarketValue() {
+        return shouldIgnoreAssetsWithoutMarketValue;
+    }
+
+    public void setShouldIgnoreAssetsWithoutMarketValue(Boolean shouldIgnoreAssetsWithoutMarketValue) {
+        this.shouldIgnoreAssetsWithoutMarketValue = shouldIgnoreAssetsWithoutMarketValue;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -58,6 +80,14 @@ public class Configuration {
         sb.append('=');
         sb.append(((this.currency == null)?"<null>":this.currency));
         sb.append(',');
+        sb.append("assetSymbol");
+        sb.append('=');
+        sb.append(((this.assetSymbol == null)?"<null>":this.assetSymbol));
+        sb.append(',');
+        sb.append("shouldIgnoreAssetsWithoutMarketValue");
+        sb.append('=');
+        sb.append(((this.shouldIgnoreAssetsWithoutMarketValue == null)?"<null>":this.shouldIgnoreAssetsWithoutMarketValue));
+        sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');
         } else {
@@ -71,6 +101,8 @@ public class Configuration {
         int result = 1;
         result = ((result* 31)+((this.limit == null)? 0 :this.limit.hashCode()));
         result = ((result* 31)+((this.currency == null)? 0 :this.currency.hashCode()));
+        result = ((result* 31)+((this.shouldIgnoreAssetsWithoutMarketValue == null)? 0 :this.shouldIgnoreAssetsWithoutMarketValue.hashCode()));
+        result = ((result* 31)+((this.assetSymbol == null)? 0 :this.assetSymbol.hashCode()));
         result = ((result* 31)+((this.kind == null)? 0 :this.kind.hashCode()));
         return result;
     }
@@ -84,7 +116,7 @@ public class Configuration {
             return false;
         }
         Configuration rhs = ((Configuration) other);
-        return ((((this.limit == rhs.limit)||((this.limit!= null)&&this.limit.equals(rhs.limit)))&&((this.currency == rhs.currency)||((this.currency!= null)&&this.currency.equals(rhs.currency))))&&((this.kind == rhs.kind)||((this.kind!= null)&&this.kind.equals(rhs.kind))));
+        return ((((((this.limit == rhs.limit)||((this.limit!= null)&&this.limit.equals(rhs.limit)))&&((this.currency == rhs.currency)||((this.currency!= null)&&this.currency.equals(rhs.currency))))&&((this.shouldIgnoreAssetsWithoutMarketValue == rhs.shouldIgnoreAssetsWithoutMarketValue)||((this.shouldIgnoreAssetsWithoutMarketValue!= null)&&this.shouldIgnoreAssetsWithoutMarketValue.equals(rhs.shouldIgnoreAssetsWithoutMarketValue))))&&((this.assetSymbol == rhs.assetSymbol)||((this.assetSymbol!= null)&&this.assetSymbol.equals(rhs.assetSymbol))))&&((this.kind == rhs.kind)||((this.kind!= null)&&this.kind.equals(rhs.kind))));
     }
 
 }

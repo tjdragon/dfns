@@ -3,14 +3,17 @@ package tj.dfns.utils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+import com.google.gson.stream.JsonWriter;
 import com.sun.codemodel.JCodeModel;
 import org.jsonschema2pojo.*;
 import org.jsonschema2pojo.rules.RuleFactory;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.Base64;
@@ -26,7 +29,40 @@ public final class Utils {
                 new GsonBuilder()
                         .serializeSpecialFloatingPointValues()
                         .disableHtmlEscaping();
+        registerNullTypeAdapter(gsonBuilder);
         gson = gsonBuilder.create();
+    }
+
+    public static class NullStringToEmptyAdapterFactory<T> implements TypeAdapterFactory {
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+
+            Class<T> rawType = (Class<T>) type.getRawType();
+            if (rawType != String.class) {
+                return null;
+            }
+            return (TypeAdapter<T>) new StringAdapter();
+        }
+    }
+
+    private static class StringAdapter extends TypeAdapter<String> {
+        public String read(JsonReader reader) throws IOException {
+            if (reader.peek() == JsonToken.NULL) {
+                reader.nextNull();
+                return "";
+            }
+            return reader.nextString();
+        }
+        public void write(JsonWriter writer, String value) throws IOException {
+            if (value == null) {
+                writer.nullValue();
+                return;
+            }
+            writer.value(value);
+        }
+    }
+
+    private static <T> void registerNullTypeAdapter(final GsonBuilder gsonBuilder) {
+        gsonBuilder.registerTypeAdapterFactory(new NullStringToEmptyAdapterFactory()).create();
     }
 
     public static String toJSON(final Object src, final Type typeOfSrc) {
@@ -35,10 +71,6 @@ public final class Utils {
 
     public static <T> T fromJSON(final String json, final Class<T> clazz) {
         return gson.fromJson(json, clazz);
-    }
-
-    public static JsonObject asJsonObject(final String json) {
-        return gson.fromJson(json, JsonObject.class);
     }
 
     public static String stringify(final String jsonData) throws JsonProcessingException {
@@ -88,9 +120,9 @@ public final class Utils {
 
     public static void main(String[] args) throws Exception {
         json2java(
-                "/Users/tj/PERSO/DEV/dfns/data/create-transfer.json",
-                "NewTransfer",
-                "tj.dfns.gen.model.transfers",
+                "/Users/tj/PERSO/DEV/dfns/data/create-policy.json",
+                "NewPolicy",
+                "tj.dfns.gen.model.policies.create",
                 "/Users/tj/PERSO/DEV/dfns/code/src/main/java");
     }
 }

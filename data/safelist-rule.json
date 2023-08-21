@@ -1,0 +1,7 @@
+{
+  "description": "Only allows known addresses",
+  "name": "Safelist Rule",
+  "configuration": {
+    "kind": "AlwaysActivatedRule"
+  }
+}
