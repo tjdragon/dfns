@@ -1,9 +1,9 @@
 package tj.dfns.utils;
 
 public interface Credentials {
-    // C3P0 SERVICE TOKEN
+    // C3P0 SERVICE TOKEN - When creating the service accounts - copy/paste this
     public static String DEFAULT_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJhdXRoLmRmbnMubmluamEiLCJhdWQiOiJkZm5zOmF1dGg6dXNlciIsInN1YiI6Im9yLTM1dnIyLWVhM3VqLTlraXE2NXJkNDkxaWR2Z3MiLCJqdGkiOiJ1ai01bzE4YS03b2ZzZS05djdwNjk1NDY1ajBxZWZkIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6W10sImh0dHBzOi8vY3VzdG9tL3VzZXJuYW1lIjoiIiwiaHR0cHM6Ly9jdXN0b20vYXBwX21ldGFkYXRhIjp7InVzZXJJZCI6InRvLTFza2NsLWExamQ4LTh0a3EwZGNyNzRtYmo2cWIiLCJvcmdJZCI6Im9yLTM1dnIyLWVhM3VqLTlraXE2NXJkNDkxaWR2Z3MiLCJ0b2tlbktpbmQiOiJTZXJ2aWNlQWNjb3VudCJ9LCJpYXQiOjE2OTE2NTAzMTMsImV4cCI6MTc1NDcyMjMxM30.ouI_8YawfGyk4EdkLhuWCBl4Rj9-8rq7XMS64CnXgVM0pzOlcu--h-9KqgKRdHQIfjtrc3kLaZJV7ThsPq975Xaejokd4pBCdZlGn_6lI3QKpQSL-YClTaIyaxPtdr_FBodBr9SyBOTKYfRmmf5ubjP1ROwKqdOw2tWXIs_NrmKvI7cmDX4nq1h0FDJ1lyySQLxhRms6buQ0a7r14FzJEt44_3THBRpntgZMlLNGs_4tcuEGkyFzk8P6wiee0ySqDgqwUlKxPXmcksDecR6Jy-kVDXHYeYfOjtf4uty3r4wAcl0zqr-q0bGkluzm7GY4Ar9dOG5HdI-pJYfV7ZX9KQ";
 
-    // C3P0 Signing Key Cred Id
+    // C3P0 Signing Key Cred Id - Can be seen in Settings / Service Accounts
     public static String API_CREDENTIAL_ID = "Y2ktNWpiZmctNHFqaXUtODJwOTA3aWtrMm5rMmJvOA";
 }

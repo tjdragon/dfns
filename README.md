@@ -82,4 +82,9 @@ See [CreateWalletTest.java](./code/src/test/java/tj/dfns/security/CreateWalletTe
 ## Policies 
 [Policies](https://docs.dfns.co/dfns-docs/api-docs/policy-management) are a critical piece of any system: they enforce rules and set controls on actions.
 
-![Policies FLow](./docs/controls.png)
+![Policies Flow](./docs/controls.png)
+
+## Permissions
+[Permissions](https://docs.dfns.co/dfns-docs/api-docs/permissions/permissions) allows the control of API access.
+
+![Permissions Flow](./docs/permissions.png)

@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor SERVICE #purple
+boundary DFNS #red
+
+autonumber
+
+SERVICE -> DFNS: Create Permission
+DFNS -> SERVICE: PER-ID-1
+
+SERVICE -> DFNS: Assign Permission\nto User/Service Account
+DFNS -> SERVICE: PER-ID-1
+
+@enduml
