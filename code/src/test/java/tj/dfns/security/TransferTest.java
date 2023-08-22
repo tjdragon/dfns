@@ -22,7 +22,7 @@ public class TransferTest {
     @Test
     void simpleTransfer() throws IOException, InterruptedException, NoSuchAlgorithmException, InvalidKeySpecException, SignatureException, NoSuchProviderException, InvalidKeyException {
         final NewTransfer newTransfer = new NewTransfer();
-        newTransfer.setAmount("888000000");
+        newTransfer.setAmount("777000000");
         newTransfer.setKind("Native");
         newTransfer.setTo("0x286F036f725356e3f88b036A22282978E83E2277");
 

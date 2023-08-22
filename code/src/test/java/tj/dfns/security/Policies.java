@@ -65,4 +65,11 @@ public class Policies {
         final String controls = RESTInvoker.get(RESTInvoker.DEFAULT_ENDPOINT + "/policies/policy-rules/", headers);
         System.out.println(controls);
     }
+
+    @Test
+    void listPoliciesControlExecutions() throws IOException, InterruptedException {
+        final Map<String, String> headers = createHeaders();
+        final String controls = RESTInvoker.get(RESTInvoker.DEFAULT_ENDPOINT + "/policies/policy-control-executions/", headers);
+        System.out.println(controls);
+    }
 }
