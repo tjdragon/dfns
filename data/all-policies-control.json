@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "configuration": {
+        "timeoutInMinutes": 60,
+        "approverUsernames": [
+          "us-87r7i-hucv8-dv8rhom5n5sci6q"
+        ],
+        "numApprovals": 1,
+        "kind": "RequestApproval"
+      },
+      "kind": "RequestApproval",
+      "author": "to-1skcl-a1jd8-8tkq0dcr74mbj6qb",
+      "description": "Whitelist Compliance Control",
+      "version": "f91b2hka5",
+      "orgId": "or-35vr2-ea3uj-9kiq65rd491idvgs",
+      "tags": [],
+      "dateCreated": "2023-08-22T06:59:17.621Z",
+      "isImmutable": false,
+      "shouldMergeWithSameControl": false,
+      "name": "Safelist Control",
+      "id": "pc-seven-neptu-6cg5afp52i9a5a3t",
+      "status": "Enabled"
+    }
+  ]
+}

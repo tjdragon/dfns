@@ -1,0 +1,12 @@
+{
+  "activityKind": "WalletsTransferAsset",
+  "description": "Preventing theft",
+  "name": "Anti Theft Policy",
+  "ruleIds": ["pr-edward-shade-d887751054"],
+  "controlIds": ["pc-music-william-failed-54497df60b"],
+  "status": "Enabled",
+  "filter": {
+    "kind": "Wallet",
+    "walletIds": ["wa-...", "wa-..."]
+  }
+}

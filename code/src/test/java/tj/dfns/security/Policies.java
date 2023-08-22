@@ -1,5 +1,6 @@
 package tj.dfns.security;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import tj.dfns.gen.model.challenge.DfnsChallenge;
 import tj.dfns.gen.model.policies.create.Configuration;
@@ -56,5 +57,12 @@ public class Policies {
         final Map<String, String> headers = createHeaders();
         final String controls = RESTInvoker.get(RESTInvoker.DEFAULT_ENDPOINT + "/policies/policy-controls/", headers);
         System.out.println(controls); // {"items":[]} = empty policies
+    }
+
+    @Test
+    void listPoliciesRules() throws IOException, InterruptedException {
+        final Map<String, String> headers = createHeaders();
+        final String controls = RESTInvoker.get(RESTInvoker.DEFAULT_ENDPOINT + "/policies/policy-rules/", headers);
+        System.out.println(controls);
     }
 }

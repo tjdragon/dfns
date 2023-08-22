@@ -1,0 +1,53 @@
+{
+  "items": [
+    {
+      "dateCreated": "2023-08-14T11:54:07.025Z",
+      "configuration": {
+        "limit": "1000",
+        "currency": "USD",
+        "kind": "TransferAmountLimit"
+      },
+      "kind": "TransferAmountLimit",
+      "author": "to-1skcl-a1jd8-8tkq0dcr74mbj6qb",
+      "name": "TRP Rule #1",
+      "description": "TRP Rule #1 Warning if above 1000 USD",
+      "id": "pr-twelv-cat-59i9bb3r299gbpbv",
+      "version": "f8lmchb4h",
+      "orgId": "or-35vr2-ea3uj-9kiq65rd491idvgs",
+      "tags": [],
+      "status": "Enabled"
+    },
+    {
+      "dateCreated": "2023-08-21T14:27:59.186Z",
+      "configuration": {
+        "kind": "AlwaysActivated"
+      },
+      "kind": "AlwaysActivated",
+      "author": "to-1skcl-a1jd8-8tkq0dcr74mbj6qb",
+      "name": "Safelist Rule",
+      "description": "Only allows known addresses",
+      "id": "pr-king-arkan-72glofqqij9qlo65",
+      "version": "f913fb762",
+      "orgId": "or-35vr2-ea3uj-9kiq65rd491idvgs",
+      "tags": [],
+      "status": "Enabled"
+    },
+    {
+      "dateCreated": "2023-08-21T13:05:13.632Z",
+      "configuration": {
+        "limit": "10000",
+        "currency": "USD",
+        "kind": "TransferAmountLimit"
+      },
+      "kind": "TransferAmountLimit",
+      "author": "to-1skcl-a1jd8-8tkq0dcr74mbj6qb",
+      "name": "TRP Rule #2",
+      "description": "TRP Rule #2 Warning if above 10000 USD",
+      "id": "pr-cold-minne-1v28t3kh9r82lb85",
+      "version": "f9130c2c0",
+      "orgId": "or-35vr2-ea3uj-9kiq65rd491idvgs",
+      "tags": [],
+      "status": "Enabled"
+    }
+  ]
+}

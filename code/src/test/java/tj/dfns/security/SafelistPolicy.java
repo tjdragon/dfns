@@ -2,6 +2,7 @@ package tj.dfns.security;
 
 import org.junit.jupiter.api.Test;
 import tj.dfns.gen.model.challenge.DfnsChallenge;
+import tj.dfns.gen.model.policies.common.ActivityKind;
 import tj.dfns.gen.model.policies.control.NewControl;
 import tj.dfns.gen.model.policies.common.Kind;
 import tj.dfns.gen.model.policies.create.NewPolicy;
@@ -63,5 +64,18 @@ public class SafelistPolicy {
         System.out.println("Policy Control Result: " + result);
     }
     @Test
-    void createPolicy() {}
+    void createPolicy() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException, SignatureException, NoSuchProviderException, InvalidKeyException, InterruptedException {
+        final tj.dfns.gen.model.policies.neo.NewPolicy newPolicy = new tj.dfns.gen.model.policies.neo.NewPolicy();
+        newPolicy.setActivityKind(ActivityKind.WalletsTransferAsset.name());
+        newPolicy.setDescription("Only allow known addresses in/out");
+        newPolicy.setName("AML Safelist Policy");
+        newPolicy.setRuleIds(Arrays.asList("pr-king-arkan-72glofqqij9qlo65"));
+        newPolicy.setControlIds(Arrays.asList("pc-seven-neptu-6cg5afp52i9a5a3t"));
+        newPolicy.setStatus("Enabled");
+        newPolicy.setFilter(null); // Applies to all
+        System.out.println("POL:: " + Utils.toJSON(newPolicy, newPolicy.getClass()));
+
+        final String result = DfnsInvoker.post(newPolicy, "/policies");
+        System.out.println("Policy Result: " + result);
+    }
 }
