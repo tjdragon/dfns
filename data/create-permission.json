@@ -1,0 +1,4 @@
+{
+  "name": "US Perms",
+  "operations": ["AssetAccounts:Read", "AssetAccounts:Create"]
+}

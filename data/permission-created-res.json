@@ -1,0 +1,15 @@
+{
+  "id": "pm-beryl-kilo-15000sac4c91vbn9",
+  "orgId": "or-35vr2-ea3uj-9kiq65rd491idvgs",
+  "name": "Safelist Approver",
+  "operations": [
+    "PolicyControlExecutions:Update"
+  ],
+  "resourceId": null,
+  "status": "Active",
+  "predicateIds": [],
+  "isImmutable": false,
+  "dateCreated": "2023-08-22T09:51:49.879Z",
+  "dateUpdated": "2023-08-22T09:51:49.879Z",
+  "isArchived": false
+}

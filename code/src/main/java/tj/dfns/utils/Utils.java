@@ -120,9 +120,9 @@ public final class Utils {
 
     public static void main(String[] args) throws Exception {
         json2java(
-                "/Users/tj/PERSO/DEV/dfns/data/create-user.json",
-                "CreateUserRequest",
-                "tj.dfns.gen.model.users.create",
+                "/Users/tj/PERSO/DEV/dfns/data/create-assignment.json",
+                "CreateAssignmentRequest",
+                "tj.dfns.gen.model.assignment.create",
                 "/Users/tj/PERSO/DEV/dfns/code/src/main/java");
     }
 }

@@ -1,0 +1,68 @@
+{
+  "items": [
+    {
+      "id": "as-apart-mars-6hmujikjmu84oqf1",
+      "permissionId": "pm-massa-south-7ro581491395coog",
+      "identityId": "ap-5cjd0-gkpc0-8vbreg28vehsungm",
+      "isImmutable": false,
+      "dateCreated": "2023-08-08T14:41:31.249Z",
+      "dateUpdated": "2023-08-08T14:41:31.249Z"
+    },
+    {
+      "id": "as-venus-missi-6mj6edejpt835ohl",
+      "permissionId": "pm-massa-south-7ro581491395coog",
+      "identityId": "to-5gi9h-thak0-817o24ikq5638j40",
+      "isImmutable": false,
+      "dateCreated": "2023-08-09T07:34:01.279Z",
+      "dateUpdated": "2023-08-09T07:34:01.279Z"
+    },
+    {
+      "id": "as-artis-heliu-5nncfk55k39nf92b",
+      "permissionId": "pm-massa-south-7ro581491395coog",
+      "identityId": "to-1bu3f-2c9l8-9maqk7i2pa8n436i",
+      "isImmutable": false,
+      "dateCreated": "2023-08-09T11:57:35.700Z",
+      "dateUpdated": "2023-08-09T11:57:35.700Z"
+    },
+    {
+      "id": "as-faile-alpha-6m47tun2dp9gsblc",
+      "permissionId": "pm-massa-south-7ro581491395coog",
+      "identityId": "us-87r7i-hucv8-dv8rhom5n5sci6q",
+      "isImmutable": false,
+      "dateCreated": "2023-08-09T07:34:01.076Z",
+      "dateUpdated": "2023-08-09T07:34:01.076Z"
+    },
+    {
+      "id": "as-islan-uncle-5pko62r9ec9lsqla",
+      "permissionId": "pm-massa-south-7ro581491395coog",
+      "identityId": "us-4gca7-hg4fa-8qd83pdncv6d9jlu",
+      "isImmutable": false,
+      "dateCreated": "2023-08-09T11:57:35.101Z",
+      "dateUpdated": "2023-08-09T11:57:35.101Z"
+    },
+    {
+      "id": "as-lion-yello-7cqf6h6e4j97jq9r",
+      "permissionId": "pm-massa-south-7ro581491395coog",
+      "identityId": "us-7o9v8-96rl3-9lnr0svbmi638tij",
+      "isImmutable": false,
+      "dateCreated": "2023-08-10T06:51:54.290Z",
+      "dateUpdated": "2023-08-10T06:51:54.290Z"
+    },
+    {
+      "id": "as-papa-mount-567nfacr98s8qdfc",
+      "permissionId": "pm-massa-south-7ro581491395coog",
+      "identityId": "us-5v2tg-e7nmd-804okj3eq9qdofsk",
+      "isImmutable": false,
+      "dateCreated": "2023-08-08T14:41:31.193Z",
+      "dateUpdated": "2023-08-08T14:41:31.193Z"
+    },
+    {
+      "id": "as-ack-orang-qnlsgm2d88s2p1oj",
+      "permissionId": "pm-massa-south-7ro581491395coog",
+      "identityId": "to-1skcl-a1jd8-8tkq0dcr74mbj6qb",
+      "isImmutable": false,
+      "dateCreated": "2023-08-10T06:51:54.494Z",
+      "dateUpdated": "2023-08-10T06:51:54.494Z"
+    }
+  ]
+}

@@ -57,7 +57,7 @@ public class SafelistPolicy {
         configuration.setNumApprovals(1);
         configuration.setTimeoutInMinutes(60);
         configuration.setKind(Kind.RequestApproval.name());
-        configuration.setApproverUsernames(Arrays.asList("us-87r7i-hucv8-dv8rhom5n5sci6q"));
+        configuration.setApproverUsernames(Arrays.asList("us-3jdgt-ptdnn-94d9j0kbrck2rg5h"));  // c3po
 
         safeListPolicyControl.setConfiguration(configuration);
         System.out.println("POL:: " + Utils.toJSON(safeListPolicyControl, safeListPolicyControl.getClass()));
@@ -72,7 +72,7 @@ public class SafelistPolicy {
         newPolicy.setDescription("Only allow known addresses in/out");
         newPolicy.setName("AML Safelist Policy");
         newPolicy.setRuleIds(Arrays.asList("pr-king-arkan-72glofqqij9qlo65"));
-        newPolicy.setControlIds(Arrays.asList("pc-seven-neptu-6cg5afp52i9a5a3t"));
+        newPolicy.setControlIds(Arrays.asList("pc-finch-lacto-45mcole8h99c1oa5"));
         newPolicy.setStatus("Enabled");
         newPolicy.setFilter(null); // Applies to all
         System.out.println("POL:: " + Utils.toJSON(newPolicy, newPolicy.getClass()));

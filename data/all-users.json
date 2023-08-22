@@ -102,7 +102,16 @@
       "isActive": true,
       "isServiceAccount": false,
       "isRegistered": false,
-      "permissionAssignments": []
+      "permissionAssignments": [
+        {
+          "permissionId": "pm-beryl-kilo-15000sac4c91vbn9",
+          "permissionName": "Safelist Approver",
+          "assignmentId": "",
+          "operations": [
+            "PolicyControlExecutions:Update"
+          ]
+        }
+      ]
     }
   ]
 }
