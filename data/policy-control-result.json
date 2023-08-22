@@ -1,0 +1,22 @@
+{
+  "id": "pc-seven-neptu-6cg5afp52i9a5a3t",
+  "version": "f91b2hka5",
+  "kind": "RequestApproval",
+  "orgId": "or-35vr2-ea3uj-9kiq65rd491idvgs",
+  "author": "to-1skcl-a1jd8-8tkq0dcr74mbj6qb",
+  "configuration": {
+    "approverUsernames": [
+      "us-87r7i-hucv8-dv8rhom5n5sci6q"
+    ],
+    "kind": "RequestApproval",
+    "numApprovals": 1,
+    "timeoutInMinutes": 60
+  },
+  "description": "Whitelist Compliance Control",
+  "name": "Safelist Control",
+  "dateCreated": "2023-08-22T06:59:17.621Z",
+  "tags": [],
+  "shouldMergeWithSameControl": false,
+  "isImmutable": false,
+  "status": "Enabled"
+}

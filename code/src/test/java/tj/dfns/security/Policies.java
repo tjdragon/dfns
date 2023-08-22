@@ -3,7 +3,7 @@ package tj.dfns.security;
 import org.junit.jupiter.api.Test;
 import tj.dfns.gen.model.challenge.DfnsChallenge;
 import tj.dfns.gen.model.policies.create.Configuration;
-import tj.dfns.gen.model.policies.create.Kind;
+import tj.dfns.gen.model.policies.common.Kind;
 import tj.dfns.gen.model.policies.create.NewPolicy;
 import tj.dfns.gen.model.useractionsig.UserActionResult;
 import tj.dfns.gen.model.useractionsig.UserActionSignature;

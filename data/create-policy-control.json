@@ -1,0 +1,13 @@
+{
+  "description": "My policy control",
+  "name": "policy-control-back-office-01",
+  "configuration": {
+    "kind": "RequestApproval",
+    "approverUsernames": [
+      "us-4algk-4jfhv-8i4fj49s0ja8t4",
+      "us-4jflw-98fj3-8isgdefs0ja8t4"
+    ],
+    "timeoutInMinutes": 60,
+    "numApprovals": 1
+  }
+}
