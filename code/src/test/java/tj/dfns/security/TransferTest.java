@@ -28,7 +28,7 @@ public class TransferTest {
 
         final String actionPath = "/wallets/wa-3uiqg-q2jk1-878rompsd0ee6lul/transfers";
 
-        final DfnsChallenge dfnsChallenge = Commons.getChallenge(newTransfer, actionPath);
+        final DfnsChallenge dfnsChallenge = Commons.getChallenge(newTransfer, actionPath, Method.POST);
         final UserActionSignature userActionSignature = Commons.createUserActionPayload(dfnsChallenge);
         final UserActionResult userActionResult = Commons.getUserActionSignature(userActionSignature);
         System.out.println("userActionResult: " + userActionResult);

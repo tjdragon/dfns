@@ -34,12 +34,12 @@ public final class Commons {
         return headers;
     }
 
-    public static <T> DfnsChallenge getChallenge(final T t, final String userActionPath) throws IOException, InterruptedException {
+    public static <T> DfnsChallenge getChallenge(final T t, final String userActionPath, final Method method) throws IOException, InterruptedException {
         System.out.println();
         System.out.println("// STEP ONE: GET THE DFNS CHALLENGE");
 
         final String json = Utils.stringify(Utils.toJSON(t, t.getClass()));
-        final CreateUserActionSignaturePayload createUserActionSignaturePayload = new CreateUserActionSignaturePayload(json, "POST", userActionPath);
+        final CreateUserActionSignaturePayload createUserActionSignaturePayload = new CreateUserActionSignaturePayload(json, method.name(), userActionPath);
         final String createUserActionSignaturePayloadJSON = Utils.stringify(Utils.toJSON(createUserActionSignaturePayload, CreateUserActionSignaturePayload.class));
         System.out.println("createUserActionSignaturePayloadJSON: " + createUserActionSignaturePayloadJSON);
 

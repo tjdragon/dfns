@@ -1,0 +1,10 @@
+{
+  "error": {
+    "name": "PolicyApprovalNotAllowedError",
+    "errorName": "Policy Approval Not Allowed",
+    "serviceName": "policies",
+    "message": "Policy approval forbidden for initiator",
+    "causes": [],
+    "shouldTriggerInvestigation": true
+  }
+}

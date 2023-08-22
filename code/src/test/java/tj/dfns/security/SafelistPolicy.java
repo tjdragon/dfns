@@ -3,9 +3,11 @@ package tj.dfns.security;
 import org.junit.jupiter.api.Test;
 import tj.dfns.gen.model.challenge.DfnsChallenge;
 import tj.dfns.gen.model.policies.common.ActivityKind;
+import tj.dfns.gen.model.policies.common.Status;
 import tj.dfns.gen.model.policies.control.NewControl;
 import tj.dfns.gen.model.policies.common.Kind;
 import tj.dfns.gen.model.policies.create.NewPolicy;
+import tj.dfns.gen.model.policies.execution.PolicyControlExec;
 import tj.dfns.gen.model.useractionsig.UserActionResult;
 import tj.dfns.gen.model.useractionsig.UserActionSignature;
 import tj.dfns.utils.RESTInvoker;
@@ -35,7 +37,7 @@ public class SafelistPolicy {
 
         safelistPolicyRule.setConfiguration(configuration);
 
-        final DfnsChallenge challenge = Commons.getChallenge(safelistPolicyRule, "/policies/policy-rules/");
+        final DfnsChallenge challenge = Commons.getChallenge(safelistPolicyRule, "/policies/policy-rules/", Method.POST);
         final UserActionSignature userActionSignature = Commons.createUserActionPayload(challenge);
         final UserActionResult userActionResult = Commons.getUserActionSignature(userActionSignature);
 
@@ -77,5 +79,15 @@ public class SafelistPolicy {
 
         final String result = DfnsInvoker.post(newPolicy, "/policies");
         System.out.println("Policy Result: " + result);
+    }
+
+    @Test
+    void approveOrRejectPolicyControl() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException, SignatureException, NoSuchProviderException, InvalidKeyException, InterruptedException {
+        final PolicyControlExec policyControlExec = new PolicyControlExec();
+        policyControlExec.setStatus(Status.Passed.name());
+        System.out.println("POL:: " + Utils.toJSON(policyControlExec, policyControlExec.getClass()));
+
+        final String result = DfnsInvoker.put(policyControlExec, "/policies/policy-control-executions/pce-idaho-nebra-32mq5316bl8auqcu");
+        System.out.println("Policy Control Execution: " + result);
     }
 }

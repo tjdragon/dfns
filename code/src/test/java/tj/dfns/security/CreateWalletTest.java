@@ -53,7 +53,7 @@ public class CreateWalletTest {
 
         final CreateWalletRequest createWalletRequest = new CreateWalletRequest("EthereumGoerli", walletId);
 
-        final DfnsChallenge dfnsChallenge = Commons.getChallenge(createWalletRequest,"/wallets");
+        final DfnsChallenge dfnsChallenge = Commons.getChallenge(createWalletRequest,"/wallets", Method.POST);
         final UserActionSignature userActionSignature = Commons.createUserActionPayload(dfnsChallenge);
         verify(userActionSignature);
         final UserActionResult userActionResult = Commons.getUserActionSignature(userActionSignature);

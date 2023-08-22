@@ -18,7 +18,7 @@ import static tj.dfns.security.Commons.createHeaders;
 
 public class DfnsInvoker {
     public static <T> String post(final T data, final String path) throws IOException, InterruptedException, NoSuchAlgorithmException, InvalidKeySpecException, SignatureException, NoSuchProviderException, InvalidKeyException {
-        final DfnsChallenge challenge = Commons.getChallenge(data, path);
+        final DfnsChallenge challenge = Commons.getChallenge(data, path, Method.POST);
         final UserActionSignature userActionSignature = Commons.createUserActionPayload(challenge);
         final UserActionResult userActionResult = Commons.getUserActionSignature(userActionSignature);
 
@@ -26,6 +26,18 @@ public class DfnsInvoker {
         final Map<String, String> headers = createHeaders();
         headers.put("X-DFNS-USERACTION", userActionResult.getUserAction());
         final String result = RESTInvoker.post(RESTInvoker.DEFAULT_ENDPOINT + path, headers, json);
+        return result;
+    }
+
+    public static <T> String put(final T data, final String path) throws IOException, InterruptedException, NoSuchAlgorithmException, InvalidKeySpecException, SignatureException, NoSuchProviderException, InvalidKeyException {
+        final DfnsChallenge challenge = Commons.getChallenge(data, path, Method.PUT);
+        final UserActionSignature userActionSignature = Commons.createUserActionPayload(challenge);
+        final UserActionResult userActionResult = Commons.getUserActionSignature(userActionSignature);
+
+        final String json = Utils.stringify(Utils.toJSON(data, data.getClass()));
+        final Map<String, String> headers = createHeaders();
+        headers.put("X-DFNS-USERACTION", userActionResult.getUserAction());
+        final String result = RESTInvoker.put(RESTInvoker.DEFAULT_ENDPOINT + path, headers, json);
         return result;
     }
 }

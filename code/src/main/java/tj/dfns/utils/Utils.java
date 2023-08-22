@@ -120,9 +120,9 @@ public final class Utils {
 
     public static void main(String[] args) throws Exception {
         json2java(
-                "/Users/tj/PERSO/DEV/dfns/data/new-policy.json",
-                "NewPolicy",
-                "tj.dfns.gen.model.policies.neo",
+                "/Users/tj/PERSO/DEV/dfns/data/policy-control-exec-req.json",
+                "PolicyControlExec",
+                "tj.dfns.gen.model.policies.execution",
                 "/Users/tj/PERSO/DEV/dfns/code/src/main/java");
     }
 }

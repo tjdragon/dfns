@@ -48,4 +48,24 @@ public final class RESTInvoker {
         System.out.println("Response Status Code: " + response.statusCode());
         return response.body();
     }
+
+    public static String put(final String endPoint, final Map<String, String> headers, final String body) throws IOException, InterruptedException {
+        HttpRequest.Builder builder = HttpRequest.newBuilder().PUT(HttpRequest.BodyPublishers.ofString(body));
+        for (Map.Entry<String, String> kv : headers.entrySet()) {
+            builder = builder.header(kv.getKey(), kv.getValue());
+        }
+        final HttpRequest httpRequest = builder.uri(URI.create(endPoint)).build();
+        System.out.println("headers: " + httpRequest.headers());
+        System.out.println("uri: " + httpRequest.uri());
+        System.out.println("httpRequest: " + httpRequest);
+
+        final HttpClient httpClient = HttpClient
+                .newBuilder()
+                .version(HttpClient.Version.HTTP_1_1)
+                .followRedirects(HttpClient.Redirect.NORMAL).build();
+
+        final HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        System.out.println("Response Status Code: " + response.statusCode());
+        return response.body();
+    }
 }

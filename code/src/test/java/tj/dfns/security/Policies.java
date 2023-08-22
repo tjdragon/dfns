@@ -41,7 +41,7 @@ public class Policies {
 
         amountLimitPolicy.setConfiguration(configuration);
 
-        final DfnsChallenge challenge = Commons.getChallenge(amountLimitPolicy, "/policies/policy-rules/");
+        final DfnsChallenge challenge = Commons.getChallenge(amountLimitPolicy, "/policies/policy-rules/", Method.POST);
         final UserActionSignature userActionSignature = Commons.createUserActionPayload(challenge);
         final UserActionResult userActionResult = Commons.getUserActionSignature(userActionSignature);
 
