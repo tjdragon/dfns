@@ -37,7 +37,7 @@ We need to provide [request headers](https://docs.dfns.co/dfns-docs/getting-star
 - X-DFNS-NONCE: a json formatted object with uuid and a time in ISO format
 - The authorization bearer token
 
-See [ListServiceAccounts](./code/src/test/java/tj/dfns/security/ListServiceAccounts.java) and the [result](https://gist.github.com/tjdragon/01532a8be16d9aacd83ebbe54418ab4c).
+See [ListServiceAccounts](./code/src/test/java/tj/dfns/security/ListServiceAccountsTest.java) and the [result](https://gist.github.com/tjdragon/01532a8be16d9aacd83ebbe54418ab4c).
 
 ## Creation of an Ethereum Wallet on Goerli
 
