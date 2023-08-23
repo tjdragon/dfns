@@ -21,8 +21,6 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static tj.dfns.security.Commons.createHeaders;
-
 /**
  * Learning from previous implementation.
  * This version allows the definition of a given service account

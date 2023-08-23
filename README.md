@@ -79,6 +79,8 @@ See [CreateWalletTest.java](./code/src/test/java/tj/dfns/security/CreateWalletTe
 13. UserActionSignature is converted to JSON and sent over
 14. You should get [dfns-user-action-sig-result.json](./data/dfns-user-action-sig-result.json) back
 
+All the steps are coded in the class [NeoDfnsInvoker](./code/src/main/java/tj/dfns/invoker/NeoDfnsInvoker.java)
+
 ## Policies 
 [Policies](https://docs.dfns.co/dfns-docs/api-docs/policy-management) are a critical piece of any system: they enforce rules and set controls on actions.
 
