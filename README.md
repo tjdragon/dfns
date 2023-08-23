@@ -90,3 +90,6 @@ All the steps are coded in the class [NeoDfnsInvoker](./code/src/main/java/tj/df
 [Permissions](https://docs.dfns.co/dfns-docs/api-docs/permissions/permissions) allows the control of API access.
 
 ![Permissions Flow](./docs/permissions.png)
+
+### Conclusion 
+That's it for now. You can re-use the code in this repo, modify it at will for your own projects.
