@@ -2,6 +2,7 @@ package tj.dfns.security;
 
 import org.junit.jupiter.api.Test;
 import tj.dfns.gen.model.wallets.WalletAssets;
+import tj.dfns.invoker.NeoDfnsInvoker;
 import tj.dfns.utils.RESTInvoker;
 import tj.dfns.utils.Utils;
 
@@ -17,8 +18,14 @@ public class WalletTest {
     void walletInfo() throws IOException, InterruptedException {
         // tj-eth-wallet-a has id wa-3uiqg-q2jk1-878rompsd0ee6lul
         final Map<String, String> headers = createHeaders();
-        final String walletDetails = RESTInvoker.get(RESTInvoker.DEFAULT_ENDPOINT + "/wallets/wa-3uiqg-q2jk1-878rompsd0ee6lul", headers);
+        final String walletDetails = RESTInvoker.get(RESTInvoker.DEFAULT_ENDPOINT + "/wallets/" + TJ_WALLET_ID, headers);
         System.out.println(walletDetails);
+    }
+
+    @Test
+    void neoWalletInfo() throws IOException, InterruptedException {
+        String result = NeoDfnsInvoker.as("C3P0").get("/wallets/" + TJ_WALLET_ID);
+        System.out.println(result);
     }
 
     @Test

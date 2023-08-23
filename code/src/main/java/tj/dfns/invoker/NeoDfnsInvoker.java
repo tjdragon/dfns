@@ -21,6 +21,8 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import static tj.dfns.security.Commons.createHeaders;
+
 /**
  * Learning from previous implementation.
  * This version allows the definition of a given service account
@@ -148,6 +150,12 @@ public final class NeoDfnsInvoker {
         final Map<String, String> headers = createHeaders();
         headers.put("X-DFNS-USERACTION", userActionResult.getUserAction());
         final String result = RESTInvoker.put(RESTInvoker.DEFAULT_ENDPOINT + path, headers, json);
+        return result;
+    }
+
+    public String get(final String path) throws IOException, InterruptedException {
+        final Map<String, String> headers = createHeaders();
+        final String result = RESTInvoker.get(RESTInvoker.DEFAULT_ENDPOINT + path, headers);
         return result;
     }
 }

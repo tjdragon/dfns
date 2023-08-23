@@ -5,6 +5,7 @@ import tj.dfns.gen.model.challenge.DfnsChallenge;
 import tj.dfns.gen.model.useractionsig.CredentialAssertion;
 import tj.dfns.gen.model.useractionsig.UserActionResult;
 import tj.dfns.gen.model.useractionsig.UserActionSignature;
+import tj.dfns.invoker.NeoDfnsInvoker;
 import tj.dfns.model.man.ClientData;
 import tj.dfns.model.man.CreateUserActionSignaturePayload;
 import tj.dfns.model.man.CreateWalletRequest;
@@ -59,5 +60,12 @@ public class CreateWalletTest {
         final UserActionResult userActionResult = Commons.getUserActionSignature(userActionSignature);
         System.out.println("userActionResult: " + userActionResult);
         postCreateWallet(userActionResult);
+    }
+
+    @Test
+    void neoCreateWallet() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException, SignatureException, NoSuchProviderException, InvalidKeyException, InterruptedException {
+        final CreateWalletRequest createWalletRequest = new CreateWalletRequest("EthereumGoerli", "R4D4");
+        final String result = NeoDfnsInvoker.as("C3P0").post(createWalletRequest, "/wallets");
+        System.out.println("result: " + result);
     }
 }
