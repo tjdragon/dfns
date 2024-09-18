@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor Exchange
+actor CP1
+actor CP2
+control HSS
+
+autonumber
+== TRADE IS DONE. WE NEED TO SETTLE ==
+Exchange -> HSS: Issue Stl Instruction\nCP1 to CP2 BTC\nand vice-versa for ETH
+HSS -> CP1: Issue BTC transfer to CP2
+CP1 -> HSS: Approves
+HSS -> CP2: Issue ETH transfer to CP1
+CP2 -> HSS: Approves
+HSS -> HSS: Collect both approvals
+HSS -> CP1: Executes transfers
+HSS -> CP2: Executes transfers
+@enduml

@@ -1,0 +1,23 @@
+{
+  "supportedCredentialKinds" : [ {
+    "kind" : "Key",
+    "factor" : "either",
+    "requiresSecondFactor" : false
+  } ],
+  "rp" : {
+    "id" : "dfns.ninja",
+    "name" : "Dfns"
+  },
+  "challenge" : "Y2gtNHJjcmstZGNiN2stOGgzODJwdWN2YmZvY2ZmNQ",
+  "challengeIdentifier" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJpc3MiOiJhdXRoLmRmbnMubmluamEiLCJhdWQiOiJkZm5zOmF1dGg6dXNlciIsInN1YiI6Im9yLTFpYWE1LTlybjNmLTlpdXF2ODRzanBmaGNqaGUiLCJqdGkiOiJ1ai1uZ3Q5Ni11aXE3OC0wanFka2FwYzZrcG92YW4iLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbXSwiaHR0cHM6Ly9jdXN0b20vdXNlcm5hbWUiOiIzN2NAU2VydmljZUFjY291bnQiLCJodHRwczovL2N1c3RvbS9hcHBfbWV0YWRhdGEiOnsidXNlcklkIjoidG8tNmVlcDMtMGdzcXYtOWFhYnRmM2M3b2hpaW82cCIsIm9yZ0lkIjoib3ItMWlhYTUtOXJuM2YtOWl1cXY4NHNqcGZoY2poZSIsInRva2VuS2luZCI6IlRlbXAiLCJjaGFsbGVuZ2UiOiJZMmd0TkhKamNtc3RaR05pTjJzdE9HZ3pPREp3ZFdOMlltWnZZMlptTlEiLCJjaGFsbGVuZ2VJbmZvIjp7InBheWxvYWQiOiJ7XCJuYW1lXCI6XCJ0anMtd2FsbGV0LTFcIixcIm5ldHdvcmtcIjpcIkV0aGVyZXVtR29lcmxpXCJ9IiwibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvd2FsbGV0cyIsInNlcnZlciI6ImFwaS5kZm5zLm5pbmphIiwic3VtbWFyeSI6IkNyZWF0ZSB3YWxsZXQgKHRqcy13YWxsZXQtMSkgb24gRXRoZXJldW1Hb2VybGkuIiwibm9uY2UiOiJuby1lYmdsai1rZGh0OS02OXB1ZjFqb28yMjhpcTMifX0sImlhdCI6MTcyNjY0OTI3MiwiZXhwIjoxNzI2NjUwMTcyfQ.UTepmT1avJKH613DMaKmOIVRfAqqyI3L0BibFANDaXCJMJP8u6uR4b3iAJ920tHajDF1AF7mzUiv1CJxfH6EBg",
+  "externalAuthenticationUrl" : "",
+  "allowCredentials" : {
+    "webauthn" : [ ],
+    "key" : [ {
+      "type" : "public-key",
+      "id" : "Y2ktMWYyNGctM2w1MjMtOTdxOXE5azVndTBrNHJ2bA"
+    } ]
+  },
+  "attestation" : "direct",
+  "userVerification" : "preferred"
+}

@@ -26,10 +26,11 @@ public final class Commons {
         final String jsonData = nonce.jsonURLencoded();
 
         final Map<String, String> headers = new ConcurrentHashMap<>();
-        headers.put("X-DFNS-APPID", "ap-5cjd0-gkpc0-8vbreg28vehsungm");
+        headers.put("X-DFNS-APPID", "ap-42qu7-ouhuu-8tr9sq2knl4heb18");
         headers.put("X-DFNS-NONCE", jsonData);
         headers.put("Authorization", "Bearer " + Credentials.DEFAULT_TOKEN);
         headers.put("Accept", "application/json");
+        headers.put("Content-Type", "application/json");
 
         return headers;
     }
