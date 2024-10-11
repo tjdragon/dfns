@@ -1,0 +1,50 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor CP1 #green
+database ETH_WALLET_1 #green
+database BTC_WALLET_1 #green
+
+actor EXCHANGE #purple
+actor HSS #red
+
+actor CP2 #orange
+database ETH_WALLET_2 #orange
+database BTC_WALLET_2 #orange
+
+' Those are settlement wallets
+autonumber
+== SET-UP ==
+CP1 -> CP1: Belongs to ORG1
+CP1 -> ETH_WALLET_1: Owns ETH Wallet
+CP1 -> BTC_WALLET_1: Owns BTC Wallet
+
+CP2 -> CP2: Belongs to ORG2
+CP2 -> ETH_WALLET_2: Owns ETH Wallet
+CP2 -> BTC_WALLET_2: Owns BTC Wallet
+
+CP1 -> ETH_WALLET_1: Maker on
+CP1 -> BTC_WALLET_1: Maker on
+EXCHANGE -> ETH_WALLET_1: Checker on
+EXCHANGE -> BTC_WALLET_1: Checker on
+
+CP2 -> ETH_WALLET_2: Maker on
+CP2 -> BTC_WALLET_2: Maker on
+EXCHANGE -> ETH_WALLET_2: Checker on
+EXCHANGE -> BTC_WALLET_2: Checker on
+
+== TRADE ==
+CP1 -> EXCHANGE: Trades BTC for ETH
+CP2 -> EXCHANGE: Trades ETH for BTC
+EXCHANGE -> EXCHANGE: Generates Settlement Instruction\nCryptographically signed
+
+== SETTLEMENT ==
+EXCHANGE -> HSS: Settlement Instruction\nTwo transfers to execute
+HSS -> HSS: Creates Settlement Job
+HSS -> HSS: External Org for CP1 and CP2
+
+ == INSTRUCTION ==
+HSS -> CP1: Transfer ETH from\nETH_WALLET_1 to ETH_WALLET_2
+HSS -> CP2: Transfer BTC from\nBTC_WALLET_1 to BTC_WALLET_2
+
+@enduml
